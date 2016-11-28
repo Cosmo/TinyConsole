@@ -1,6 +1,11 @@
+<img src="https://raw.githubusercontent.com/Cosmo/TinyConsole/master/TinyConsole-Banner.png" alt=" text" width="100%" />
+
 # TinyConsole
 
 A tiny log console to display information while using your iOS app.
+Written in Swift 3.
+
+<img src="https://raw.githubusercontent.com/Cosmo/TinyConsole/master/TinyConsole-Open.png" alt=" text" width="50%" />
 
 ## Usage
 
@@ -44,3 +49,12 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     return true
 }
 ```
+
+# Hierarchy
+
+<img src="https://raw.githubusercontent.com/Cosmo/TinyConsole/master/TinyConsole-Hierarchy.png" alt=" text" width="100%" />
+
+# Contact
+
+* Devran "Cosmo" Uenal
+* Twitter: [@maccosmo](http://twitter.com/maccosmo)
