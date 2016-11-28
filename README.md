@@ -18,12 +18,12 @@ TinyConsoleController(rootViewController: MyMainViewController())
 ### Actions
 
 ```swift
-TinyConsole.shared.print(text: “hello”)
+TinyConsole.shared.print(text: "hello")
 TinyConsole.shared.addMarker()
 TinyConsole.shared.clear()
 ```
 
-> Shake to toggle the console view. If you're using the Simulator, press <kbd>⌃ ctrl</kbd>-<kbd>⌘ cmd</kbd>-<kbd>z</kbd>.
+> Shake to toggle the console view. If you’re using the Simulator, press <kbd>⌃ ctrl</kbd>-<kbd>⌘ cmd</kbd>-<kbd>z</kbd>.
 
 
 ## Implementation Example
