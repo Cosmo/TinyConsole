@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class TinyConsoleViewController: UIViewController {
+class TinyConsoleViewController: UIViewController {
     let consoleTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = UIColor.black
