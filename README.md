@@ -9,7 +9,7 @@ Written in Swift 3.
 
 ## Usage
 
-Set your ViewController as a `rootViewController` of a `TinyConsoleController`-Instance.
+Create a `TinyConsoleController`-Instance and pass your App-ViewController as a `rootViewController` parameter.
 
 ```swift
 TinyConsoleController(rootViewController: MyMainViewController())
