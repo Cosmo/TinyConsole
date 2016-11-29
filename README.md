@@ -23,6 +23,12 @@ TinyConsole.shared.addMarker()
 TinyConsole.shared.clear()
 ```
 
+### Gestures
+
+* Swipe from Left to Right: Add marker
+* 2 Finger Tap: Add custom log entry
+* 3 Finger Tap: Show Action Sheet to `Clear Console` and `Send Mail
+
 > Shake to toggle the console view. If you’re using the Simulator, press <kbd>⌃ ctrl</kbd>-<kbd>⌘ cmd</kbd>-<kbd>z</kbd>.
 
 
