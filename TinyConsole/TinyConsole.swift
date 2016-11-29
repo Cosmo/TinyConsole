@@ -35,18 +35,22 @@ open class TinyConsole {
     }
     
     public func print(text: String, global: Bool = true) {
-        if let textView = self.textView {
-            textView.text.append(self.currentTimeStamp() + " " + text + "\n")
-            self.scrollToBottom()
-        }
-        if global {
-            Swift.print(text)
+        DispatchQueue.main.async {
+            if let textView = self.textView {
+                textView.text.append(self.currentTimeStamp() + " " + text + "\n")
+                self.scrollToBottom()
+            }
+            if global {
+                Swift.print(text)
+            }
         }
     }
     
     public func clear() {
-        self.textView?.text = ""
-        self.scrollToBottom()
+        DispatchQueue.main.async {
+            self.textView?.text = ""
+            self.scrollToBottom()
+        }
     }
     
     public func addMarker() {
