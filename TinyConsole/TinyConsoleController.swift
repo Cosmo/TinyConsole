@@ -8,15 +8,22 @@
 
 import UIKit
 
+enum TinyConsoleWindowMode {
+    case collapsed
+    case expanded
+}
+
 open class TinyConsoleController: UIViewController {
     var rootViewController: UIViewController?
+    
     var consoleViewController: TinyConsoleViewController = {
         return TinyConsoleViewController()
     }()
-    var consoleViewCollapsed: Bool = true {
+    
+    var consoleWindowMode: TinyConsoleWindowMode = .collapsed {
         didSet {
             self.consoleViewHeightConstraint?.isActive = false
-            self.consoleViewHeightConstraint?.constant = self.consoleViewCollapsed ? 0 : 140
+            self.consoleViewHeightConstraint?.constant = self.consoleWindowMode == .collapsed ? 0 : 140
             self.consoleViewHeightConstraint?.isActive = true
         }
     }
@@ -77,7 +84,7 @@ open class TinyConsoleController: UIViewController {
     
     open override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if (motion == UIEventSubtype.motionShake) {
-            self.consoleViewCollapsed = !self.consoleViewCollapsed
+            self.consoleWindowMode = self.consoleWindowMode == .collapsed ? .expanded : .collapsed
             UIView.animate(withDuration: 0.25) {
                 self.view.layoutIfNeeded()
             }
