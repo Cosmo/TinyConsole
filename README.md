@@ -2,6 +2,11 @@
 
 # TinyConsole
 
+<img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
+<img src="https://img.shields.io/badge/swift3-compatible-green.svg?style=flat" alt="Swift 3 compatible" />
+<img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat" alt="Carthage compatible" />
+<img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT" />
+
 A tiny log console to display information while using your iOS app.
 Written in Swift 3.
 
@@ -56,11 +61,31 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-# Hierarchy
+or checkout the example project included in this repository.
+
+## Installation
+
+### Carthage
+
+Add this to your Cartfile:
+
+```ruby
+github "Cosmo/TinyConsole"
+```
+
+### Manually
+
+Just drag the source files into your project.
+
+## Hierarchy
 
 <img src="https://raw.githubusercontent.com/Cosmo/TinyConsole/master/TinyConsole-Hierarchy.png" alt=" text" width="100%" />
 
-# Contact
+## Contact
 
 * Devran "Cosmo" Uenal
 * Twitter: [@maccosmo](http://twitter.com/maccosmo)
+
+## License
+
+TinyConsole is released under the [MIT License](http://www.opensource.org/licenses/MIT).
