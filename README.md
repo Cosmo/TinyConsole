@@ -33,8 +33,7 @@ TinyConsole.shared.clear()
 * Swipe from Left to Right: `Add marker`
 * 2 Finger Tap: `Add custom log entry`
 * 3 Finger Tap: Show Action Sheet to `Clear Console` and `Send Mail`
-
-> Shake to toggle the console view. If you’re using the Simulator, press <kbd>⌃ ctrl</kbd>-<kbd>⌘ cmd</kbd>-<kbd>z</kbd>.
+* Shake to toggle the console view. If you’re using the Simulator, press <kbd>⌃ ctrl</kbd>-<kbd>⌘ cmd</kbd>-<kbd>z</kbd>.
 
 
 ## Implementation Example
@@ -62,6 +61,10 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 
 or checkout the example project included in this repository.
+
+## Demo
+
+<img src="https://raw.githubusercontent.com/Cosmo/TinyConsole/master/TinyConsole-Demo.gif" alt=" text" width="25%" />
 
 ## Installation
 
