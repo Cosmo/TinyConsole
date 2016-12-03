@@ -68,12 +68,20 @@ or checkout the example project included in this repository.
 
 ## Installation
 
-### Carthage
+### [Carthage](https://github.com/Carthage/Carthage)
 
 Add this to your Cartfile:
 
 ```ruby
 github "Cosmo/TinyConsole"
+```
+
+### [Cocoapods](https://cocoapods.org)
+
+Add this to your Podfile:
+
+```ruby
+pod 'TinyConsole'
 ```
 
 ### Manually
