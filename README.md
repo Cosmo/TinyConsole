@@ -23,9 +23,9 @@ TinyConsoleController(rootViewController: MyMainViewController())
 ### Actions
 
 ```swift
-TinyConsole.shared.print(text: "hello")
-TinyConsole.shared.addMarker()
-TinyConsole.shared.clear()
+TinyConsole.print("hello")
+TinyConsole.addMarker()
+TinyConsole.clear()
 ```
 
 ### Gestures

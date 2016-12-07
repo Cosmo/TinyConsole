@@ -55,7 +55,7 @@ class TinyConsoleViewController: UIViewController {
         let okAction = UIAlertAction(title: "Add log", style: UIAlertActionStyle.default) {
             (action: UIAlertAction) in
             if let text = alert.textFields?.first?.text, !text.isEmpty {
-                TinyConsole.shared.print(text: text)
+                TinyConsole.print(text)
             }
         }
         
@@ -85,7 +85,7 @@ class TinyConsoleViewController: UIViewController {
         
         let clearAction = UIAlertAction(title: "Clear", style: UIAlertActionStyle.destructive) {
             (action: UIAlertAction) in
-            TinyConsole.shared.clear()
+            TinyConsole.clear()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
@@ -98,7 +98,7 @@ class TinyConsoleViewController: UIViewController {
     }
     
     func addMarker(sender: UISwipeGestureRecognizer) {
-        TinyConsole.shared.addMarker()
+        TinyConsole.addMarker()
     }
 }
 

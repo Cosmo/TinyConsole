@@ -40,19 +40,19 @@ class MainViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        TinyConsole.shared.print(text: "Tapped on \(indexPath.row)")
+        TinyConsole.print("Tapped on \(indexPath.row)")
     }
     
     func addLog() {
-        TinyConsole.shared.print(text: "hello world")
+        TinyConsole.print("hello world")
     }
     
     func clear() {
-        TinyConsole.shared.clear()
+        TinyConsole.clear()
     }
     
     func addMarker() {
-        TinyConsole.shared.addMarker()
+        TinyConsole.addMarker()
     }
 }
 
