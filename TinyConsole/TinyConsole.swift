@@ -38,7 +38,7 @@ open class TinyConsole {
         DispatchQueue.main.async {
             if let textView = shared.textView {
                 textView.text.append(shared.currentTimeStamp() + " " + text + "\n")
-                self.scrollToBottom()
+                TinyConsole.scrollToBottom()
             }
             if global {
                 Swift.print(text)
