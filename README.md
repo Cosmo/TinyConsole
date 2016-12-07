@@ -76,7 +76,7 @@ Add this to your Cartfile:
 github "Cosmo/TinyConsole"
 ```
 
-### [Cocoapods](https://cocoapods.org)
+### [CocoaPods](https://cocoapods.org)
 
 Add this to your Podfile:
 
