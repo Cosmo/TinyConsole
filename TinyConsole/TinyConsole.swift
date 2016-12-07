@@ -46,14 +46,14 @@ open class TinyConsole {
         }
     }
     
-    public static func clear(){
+    public static func clear() {
         DispatchQueue.main.async {
             shared.textView?.text = ""
             TinyConsole.scrollToBottom()
         }
     }
     
-    public static func addMarker(){
+    public static func addMarker() {
         TinyConsole.print("-----------")
     }
 }
@@ -66,7 +66,7 @@ extension TinyConsole {
     }
     
     @available(*,deprecated, message: "use static function TinyConsole.print(_:, global:) instead")
-    public func print(text: String, global: Bool = true){
+    public func print(text: String, global: Bool = true) {
         TinyConsole.print(text, global: global)
     }
     
