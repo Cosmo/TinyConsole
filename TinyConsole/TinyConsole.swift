@@ -69,6 +69,7 @@ open class TinyConsole {
                 textView.attributedText = newText
                 TinyConsole.scrollToBottom()
             }
+            
             if global {
                 Swift.print(text.string)
             }
