@@ -59,23 +59,43 @@ open class TinyConsoleController: UIViewController {
     }
     
     lazy var consoleViewHeightConstraint: NSLayoutConstraint? = {
-        return self.consoleViewController.view.heightAnchor.constraint(equalToConstant: 0)
+        if #available(iOS 9, *) {
+            return self.consoleViewController.view.heightAnchor.constraint(equalToConstant: 0)
+        } else {
+            return NSLayoutConstraint(item: self.consoleViewController.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 0)
+        }
     }()
     
     func setupConstraints() {
-        self.rootViewController?.view.translatesAutoresizingMaskIntoConstraints = false
-        self.rootViewController?.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.rootViewController?.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.rootViewController?.view.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        
-        self.consoleViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        self.consoleViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        self.consoleViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.consoleViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        
-        self.consoleViewHeightConstraint?.isActive = true
-        
-        self.rootViewController?.view.bottomAnchor.constraint(equalTo: self.consoleViewController.view.topAnchor).isActive = true
+        if #available(iOS 9, *) {
+            self.rootViewController?.view.translatesAutoresizingMaskIntoConstraints = false
+            self.rootViewController?.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+            self.rootViewController?.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+            self.rootViewController?.view.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+            
+            self.consoleViewController.view.translatesAutoresizingMaskIntoConstraints = false
+            self.consoleViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+            self.consoleViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+            self.consoleViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+            
+            self.consoleViewHeightConstraint?.isActive = true
+            
+            self.rootViewController?.view.bottomAnchor.constraint(equalTo: self.consoleViewController.view.topAnchor).isActive = true
+        } else {
+            self.rootViewController?.view.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint(item: (self.rootViewController?.view)!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+            NSLayoutConstraint(item: (self.rootViewController?.view)!, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+            NSLayoutConstraint(item: (self.rootViewController?.view)!, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+            
+            self.consoleViewController.view.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint(item: self.consoleViewController.view, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+            NSLayoutConstraint(item: self.consoleViewController.view, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+            NSLayoutConstraint(item: self.consoleViewController.view, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+            
+            self.consoleViewHeightConstraint?.isActive = true
+            
+            NSLayoutConstraint(item: (self.rootViewController?.view)!, attribute: .bottom, relatedBy: .equal, toItem: self.consoleViewController.view, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        }
     }
     
     open override func updateViewConstraints() {

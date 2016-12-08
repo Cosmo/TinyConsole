@@ -40,10 +40,17 @@ class TinyConsoleViewController: UIViewController {
     
     func setupConstraints() {
         self.consoleTextView.translatesAutoresizingMaskIntoConstraints = false
-        self.consoleTextView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.consoleTextView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.consoleTextView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        self.consoleTextView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        if #available(iOS 9, *) {
+            self.consoleTextView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+            self.consoleTextView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+            self.consoleTextView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+            self.consoleTextView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        } else {
+            NSLayoutConstraint(item: self.consoleTextView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+            NSLayoutConstraint(item: self.consoleTextView, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+            NSLayoutConstraint(item: self.consoleTextView, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+            NSLayoutConstraint(item: self.consoleTextView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+        }
     }
     
     func customText(sender: UITapGestureRecognizer) {
