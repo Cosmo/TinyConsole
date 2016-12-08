@@ -40,10 +40,10 @@ open class TinyConsole {
         let range = NSRange(location: 0, length: formattedText.length)
         
         // set text font and color
-        formattedText.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
         if let font = UIFont(name: "Menlo", size: 12.0){
             formattedText.addAttribute(NSFontAttributeName, value: font, range: range)
         }
+        formattedText.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
         
         TinyConsole.print(formattedText, global: global)
     }
