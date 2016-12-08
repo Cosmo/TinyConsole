@@ -14,7 +14,7 @@ open class TinyConsole {
     
     public static var textAppearance = [NSFontAttributeName : UIFont(name: "Menlo", size: 12.0)!, NSForegroundColorAttributeName : UIColor.white]
     
-    init() {
+    private init() {
     }
     
     var dateFormatter: DateFormatter = {
@@ -37,7 +37,6 @@ open class TinyConsole {
     }
     
     public static func print(_ text: String, global: Bool = true, color : UIColor = UIColor.white) {
-        
         let formattedText = NSMutableAttributedString(string: text)
         let range = NSRange(location: 0, length: formattedText.length)
         
@@ -49,27 +48,27 @@ open class TinyConsole {
     }
     
     public static func print(_ text: NSAttributedString, global : Bool = true) {
-        DispatchQueue.main.async {
-            if let textView = shared.textView {
-                let timeStamped = NSMutableAttributedString(string: shared.currentTimeStamp() + " ")
-                let range = NSRange(location: 0, length: timeStamped.length)
+        if let textView = shared.textView {
+            let timeStamped = NSMutableAttributedString(string: shared.currentTimeStamp() + " ")
+            let range = NSRange(location: 0, length: timeStamped.length)
                 
-                // set standard text appearance for time-stamp
-                timeStamped.addAttributes(TinyConsole.textAppearance, range: range)
+            // set standard text appearance for time-stamp
+            timeStamped.addAttributes(TinyConsole.textAppearance, range: range)
             
-                timeStamped.append(text)
-                timeStamped.append(NSAttributedString(string :"\n"))
+            timeStamped.append(text)
+            timeStamped.append(NSAttributedString(string :"\n"))
                 
-                let newText = NSMutableAttributedString(attributedString: textView.attributedText)
-                newText.append(timeStamped)
+            let newText = NSMutableAttributedString(attributedString: textView.attributedText)
+            newText.append(timeStamped)
                 
+            DispatchQueue.main.async {
                 textView.attributedText = newText
                 TinyConsole.scrollToBottom()
             }
+        }
             
-            if global {
-                Swift.print(text.string)
-            }
+        if global {
+            Swift.print(text.string)
         }
     }
     
