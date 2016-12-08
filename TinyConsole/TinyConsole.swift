@@ -34,14 +34,32 @@ open class TinyConsole {
         }
     }
     
-    public static func print(_ text: String, global: Bool = true){
+    public static func print(_ text: String, global: Bool = true, color : UIColor = UIColor.white){
+        
+        let string = NSMutableAttributedString(string: text)
+        
+        string.addAttribute(NSForegroundColorAttributeName, value: color, range: NSRange.init(location: 0, length: string.length))
+        
+        TinyConsole.print(string, global: global)
+        
+    }
+    
+    public static func print(_ text: NSAttributedString, global : Bool = true) {
         DispatchQueue.main.async {
             if let textView = shared.textView {
-                textView.text.append(shared.currentTimeStamp() + " " + text + "\n")
+                let timeStamped = NSMutableAttributedString(string: shared.currentTimeStamp() + " ")
+                timeStamped.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: NSRange(location: 0, length: timeStamped.length))
+                timeStamped.append(text)
+                timeStamped.append(NSAttributedString(string :"\n"))
+                
+                let newText = NSMutableAttributedString(attributedString: textView.attributedText)
+                newText.append(timeStamped)
+                
+                textView.attributedText = newText
                 TinyConsole.scrollToBottom()
             }
             if global {
-                Swift.print(text)
+                Swift.print(text.string)
             }
         }
     }
@@ -54,7 +72,7 @@ open class TinyConsole {
     }
     
     public static func addMarker() {
-        TinyConsole.print("-----------")
+        TinyConsole.print("-----------", color : UIColor.red)
     }
 }
 
