@@ -11,7 +11,8 @@ import UIKit
 open class TinyConsole {
     public static var shared = TinyConsole()
     var textView: UITextView?
-    private let font = UIFont(name: "Menlo", size: 12.0)!
+    
+    public static var textAppearance = [NSFontAttributeName : UIFont(name: "Menlo", size: 12.0)!, NSForegroundColorAttributeName : UIColor.white]
     
     init() {
     }
@@ -40,8 +41,8 @@ open class TinyConsole {
         let formattedText = NSMutableAttributedString(string: text)
         let range = NSRange(location: 0, length: formattedText.length)
         
-        // set text font and color
-        formattedText.addAttribute(NSFontAttributeName, value: font, range: range)
+        // set standard text appearance and override foreground color attribute
+        formattedText.addAttributes(TinyConsole.textAppearance, range: range)
         formattedText.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
         
         TinyConsole.print(formattedText, global: global)
@@ -53,9 +54,8 @@ open class TinyConsole {
                 let timeStamped = NSMutableAttributedString(string: shared.currentTimeStamp() + " ")
                 let range = NSRange(location: 0, length: timeStamped.length)
                 
-                // set time-stamp font and color
-                timeStamped.addAttribute(NSFontAttributeName, value: font, range: range)
-                timeStamped.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: range)
+                // set standard text appearance for time-stamp
+                timeStamped.addAttributes(TinyConsole.textAppearance, range: range)
             
                 timeStamped.append(text)
                 timeStamped.append(NSAttributedString(string :"\n"))
@@ -85,7 +85,7 @@ open class TinyConsole {
     }
     
     public static func addMarker() {
-        TinyConsole.print("-----------")
+        TinyConsole.print("-----------", color: UIColor.red)
     }
 }
 
