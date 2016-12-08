@@ -23,7 +23,7 @@ TinyConsoleController(rootViewController: MyMainViewController())
 ### Actions
 
 ```swift
-// TinyConsole prints NSFormattedString and Strings
+// TinyConsole prints NSFormattedStrings and Strings
 TinyConsole.print("hello")
 
 // print messages any color you want 
