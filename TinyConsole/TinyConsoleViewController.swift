@@ -13,8 +13,6 @@ class TinyConsoleViewController: UIViewController {
     let consoleTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = UIColor.black
-        textView.textColor = UIColor.white
-        textView.font = UIFont(name: "Menlo", size: 12.0)
         textView.isEditable = false
         return textView
     }()

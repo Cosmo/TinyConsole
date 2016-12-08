@@ -12,7 +12,9 @@ open class TinyConsole {
     public static var shared = TinyConsole()
     var textView: UITextView?
     
-    init() {
+    public static var textAppearance = [NSFontAttributeName : UIFont(name: "Menlo", size: 12.0)!, NSForegroundColorAttributeName : UIColor.white]
+    
+    private init() {
     }
     
     var dateFormatter: DateFormatter = {
@@ -26,7 +28,7 @@ open class TinyConsole {
         return self.dateFormatter.string(from: Date())
     }
     
-    public static func scrollToBottom(){
+    public static func scrollToBottom() {
         if let textView = shared.textView, textView.bounds.height < textView.contentSize.height {
             textView.layoutManager.ensureLayout(for: textView.textContainer)
             let offset = CGPoint(x: 0, y: (textView.contentSize.height - textView.frame.size.height))
@@ -34,15 +36,39 @@ open class TinyConsole {
         }
     }
     
-    public static func print(_ text: String, global: Bool = true){
-        DispatchQueue.main.async {
-            if let textView = shared.textView {
-                textView.text.append(shared.currentTimeStamp() + " " + text + "\n")
+    public static func print(_ text: String, global: Bool = true, color : UIColor = UIColor.white) {
+        let formattedText = NSMutableAttributedString(string: text)
+        let range = NSRange(location: 0, length: formattedText.length)
+        
+        // set standard text appearance and override foreground color attribute
+        formattedText.addAttributes(TinyConsole.textAppearance, range: range)
+        formattedText.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+        
+        TinyConsole.print(formattedText, global: global)
+    }
+    
+    public static func print(_ text: NSAttributedString, global : Bool = true) {
+        if let textView = shared.textView {
+            let timeStamped = NSMutableAttributedString(string: shared.currentTimeStamp() + " ")
+            let range = NSRange(location: 0, length: timeStamped.length)
+                
+            // set standard text appearance for time-stamp
+            timeStamped.addAttributes(TinyConsole.textAppearance, range: range)
+            
+            timeStamped.append(text)
+            timeStamped.append(NSAttributedString(string :"\n"))
+                
+            let newText = NSMutableAttributedString(attributedString: textView.attributedText)
+            newText.append(timeStamped)
+                
+            DispatchQueue.main.async {
+                textView.attributedText = newText
                 TinyConsole.scrollToBottom()
             }
-            if global {
-                Swift.print(text)
-            }
+        }
+            
+        if global {
+            Swift.print(text.string)
         }
     }
     
@@ -53,8 +79,12 @@ open class TinyConsole {
         }
     }
     
+    public static func error(_ text: String) {
+        TinyConsole.print(text, color: UIColor.red)
+    }
+    
     public static func addMarker() {
-        TinyConsole.print("-----------")
+        TinyConsole.print("-----------", color: UIColor.red)
     }
 }
 
