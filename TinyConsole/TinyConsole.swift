@@ -11,6 +11,7 @@ import UIKit
 open class TinyConsole {
     public static var shared = TinyConsole()
     var textView: UITextView?
+    private let font = UIFont(name: "Menlo", size: 12.0)!
     
     init() {
     }
@@ -40,9 +41,7 @@ open class TinyConsole {
         let range = NSRange(location: 0, length: formattedText.length)
         
         // set text font and color
-        if let font = UIFont(name: "Menlo", size: 12.0){
-            formattedText.addAttribute(NSFontAttributeName, value: font, range: range)
-        }
+        formattedText.addAttribute(NSFontAttributeName, value: font, range: range)
         formattedText.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
         
         TinyConsole.print(formattedText, global: global)
@@ -55,9 +54,7 @@ open class TinyConsole {
                 let range = NSRange(location: 0, length: timeStamped.length)
                 
                 // set time-stamp font and color
-                if let font = UIFont(name: "Menlo", size: 12.0){
-                    timeStamped.addAttribute(NSFontAttributeName, value: font, range: range)
-                }
+                timeStamped.addAttribute(NSFontAttributeName, value: font, range: range)
                 timeStamped.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: range)
             
                 timeStamped.append(text)
