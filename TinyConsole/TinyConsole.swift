@@ -71,8 +71,12 @@ open class TinyConsole {
         }
     }
     
+    public static func error(_ text: String) {
+        TinyConsole.print(text, color: UIColor.red)
+    }
+    
     public static func addMarker() {
-        TinyConsole.print("-----------", color : UIColor.red)
+        TinyConsole.print("-----------")
     }
 }
 
