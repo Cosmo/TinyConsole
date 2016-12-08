@@ -36,19 +36,30 @@ open class TinyConsole {
     
     public static func print(_ text: String, global: Bool = true, color : UIColor = UIColor.white){
         
-        let string = NSMutableAttributedString(string: text)
+        let formattedText = NSMutableAttributedString(string: text)
+        let range = NSRange(location: 0, length: formattedText.length)
         
-        string.addAttribute(NSForegroundColorAttributeName, value: color, range: NSRange.init(location: 0, length: string.length))
+        // set text font and color
+        formattedText.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+        if let font = UIFont(name: "Menlo", size: 12.0){
+            formattedText.addAttribute(NSFontAttributeName, value: font, range: range)
+        }
         
-        TinyConsole.print(string, global: global)
-        
+        TinyConsole.print(formattedText, global: global)
     }
     
     public static func print(_ text: NSAttributedString, global : Bool = true) {
         DispatchQueue.main.async {
             if let textView = shared.textView {
                 let timeStamped = NSMutableAttributedString(string: shared.currentTimeStamp() + " ")
-                timeStamped.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: NSRange(location: 0, length: timeStamped.length))
+                let range = NSRange(location: 0, length: timeStamped.length)
+                
+                // set time-stamp font and color
+                if let font = UIFont(name: "Menlo", size: 12.0){
+                    timeStamped.addAttribute(NSFontAttributeName, value: font, range: range)
+                }
+                timeStamped.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: range)
+            
                 timeStamped.append(text)
                 timeStamped.append(NSAttributedString(string :"\n"))
                 
