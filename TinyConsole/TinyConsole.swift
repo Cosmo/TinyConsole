@@ -26,7 +26,7 @@ open class TinyConsole {
         return self.dateFormatter.string(from: Date())
     }
     
-    public static func scrollToBottom(){
+    public static func scrollToBottom() {
         if let textView = shared.textView, textView.bounds.height < textView.contentSize.height {
             textView.layoutManager.ensureLayout(for: textView.textContainer)
             let offset = CGPoint(x: 0, y: (textView.contentSize.height - textView.frame.size.height))
@@ -34,7 +34,7 @@ open class TinyConsole {
         }
     }
     
-    public static func print(_ text: String, global: Bool = true, color : UIColor = UIColor.white){
+    public static func print(_ text: String, global: Bool = true, color : UIColor = UIColor.white) {
         
         let formattedText = NSMutableAttributedString(string: text)
         let range = NSRange(location: 0, length: formattedText.length)
