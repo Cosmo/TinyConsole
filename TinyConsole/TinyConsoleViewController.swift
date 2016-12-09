@@ -29,7 +29,11 @@ class TinyConsoleViewController: UIViewController {
         
         let addCustomTextGesture = UITapGestureRecognizer(target: self, action: #selector(customText))
         addCustomTextGesture.numberOfTouchesRequired = 2
-        self.view.addGestureRecognizer(addCustomTextGesture)
+        if #available(iOS 9, *) {
+            self.view.addGestureRecognizer(addCustomTextGesture)
+        } else {
+            self.consoleTextView.addGestureRecognizer(addCustomTextGesture)
+        }
         
         let showAdditionalActionsGesture = UITapGestureRecognizer(target: self, action: #selector(additionalActions))
         showAdditionalActionsGesture.numberOfTouchesRequired = 3
