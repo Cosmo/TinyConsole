@@ -50,7 +50,7 @@ open class TinyConsoleController: UIViewController {
     private lazy var consoleFrame: CGRect = {
         
         var consoleFrame = self.view.bounds
-        consoleFrame.size.height -= 120
+        consoleFrame.size.height -= self.consoleFrameHeight
         
         return consoleFrame
     }()
