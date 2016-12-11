@@ -25,7 +25,7 @@ open class TinyConsole {
     }()
     
     func currentTimeStamp() -> String {
-        return self.dateFormatter.string(from: Date())
+        return dateFormatter.string(from: Date())
     }
     
     public static func scrollToBottom() {
