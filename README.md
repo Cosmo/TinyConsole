@@ -26,13 +26,16 @@ TinyConsoleController(rootViewController: MyMainViewController())
 // TinyConsole prints NSFormattedStrings and Strings
 TinyConsole.print("hello")
 
-// print messages any color you want 
+// Print messages any color you want 
 TinyConsole.print("green text", color: UIColor.green)
 
-// prints a red error message 
+// Prints a red error message 
 TinyConsole.error("something went wrong")
 
+// Print a marker for orientation
 TinyConsole.addMarker()
+
+// Clear console
 TinyConsole.clear()
 ```
 
@@ -73,6 +76,12 @@ or checkout the example project included in this repository.
 ## Demo
 
 <img src="https://raw.githubusercontent.com/Cosmo/TinyConsole/master/TinyConsole-Demo.gif" alt=" text" width="25%" />
+
+## Requirements
+
+* Xcode 8
+* Swift 3
+* iOS 8 or greater
 
 ## Installation
 
