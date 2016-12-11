@@ -10,8 +10,6 @@
 A tiny log console to display information while using your iOS app.
 Written in Swift 3.
 
-<img src="https://raw.githubusercontent.com/Cosmo/TinyConsole/master/TinyConsole-Open.png" alt=" text" width="50%" />
-
 ## Usage
 
 Create a `TinyConsoleController`-Instance and pass your App-ViewController as a `rootViewController` parameter.
