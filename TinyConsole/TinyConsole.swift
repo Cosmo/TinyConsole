@@ -38,7 +38,7 @@ open class TinyConsole {
         }
     }
     
-    public static func print(_ text: String, global: Bool = true, color: UIColor = UIColor.white) {
+    public static func print(_ text: String, color: UIColor = UIColor.white, global: Bool = true) {
         let formattedText = NSMutableAttributedString(string: text)
         let range = NSRange(location: 0, length: formattedText.length)
         
