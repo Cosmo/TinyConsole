@@ -23,16 +23,19 @@ TinyConsoleController(rootViewController: MyMainViewController())
 ### Actions
 
 ```swift
-// TinyConsole prints NSFormattedStrings and Strings
+// Print message
 TinyConsole.print("hello")
 
-// print messages any color you want 
+// Print messages any color you want 
 TinyConsole.print("green text", color: UIColor.green)
 
-// prints a red error message 
+// Print a red error message 
 TinyConsole.error("something went wrong")
 
+// Print a marker for orientation
 TinyConsole.addMarker()
+
+// Clear console
 TinyConsole.clear()
 ```
 
@@ -50,9 +53,9 @@ Instead of
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    self.window = UIWindow(frame: UIScreen.main.bounds)
-    self.window?.rootViewController = MainViewController()
-    self.window?.makeKeyAndVisible()
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.rootViewController = MainViewController()
+    window?.makeKeyAndVisible()
     return true
 }
 ```
@@ -61,9 +64,9 @@ write
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    self.window = UIWindow(frame: UIScreen.main.bounds)
-    self.window?.rootViewController = TinyConsoleController(rootViewController: MainViewController())
-    self.window?.makeKeyAndVisible()
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.rootViewController = TinyConsoleController(rootViewController: MainViewController())
+    window?.makeKeyAndVisible()
     return true
 }
 ```
@@ -73,6 +76,12 @@ or checkout the example project included in this repository.
 ## Demo
 
 <img src="https://raw.githubusercontent.com/Cosmo/TinyConsole/master/TinyConsole-Demo.gif" alt=" text" width="25%" />
+
+## Requirements
+
+* Xcode 8
+* Swift 3
+* iOS 8 or greater
 
 ## Installation
 

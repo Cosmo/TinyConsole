@@ -12,7 +12,9 @@ open class TinyConsole {
     public static var shared = TinyConsole()
     var textView: UITextView?
     
-    public static var textAppearance = [NSFontAttributeName : UIFont(name: "Menlo", size: 12.0)!, NSForegroundColorAttributeName : UIColor.white]
+    public static var textAppearance = [
+        NSFontAttributeName: UIFont(name: "Menlo", size: 12.0)!,
+        NSForegroundColorAttributeName: UIColor.white]
     
     private init() {
     }
@@ -25,7 +27,7 @@ open class TinyConsole {
     }()
     
     func currentTimeStamp() -> String {
-        return self.dateFormatter.string(from: Date())
+        return dateFormatter.string(from: Date())
     }
     
     public static func scrollToBottom() {
@@ -36,7 +38,7 @@ open class TinyConsole {
         }
     }
     
-    public static func print(_ text: String, global: Bool = true, color : UIColor = UIColor.white) {
+    public static func print(_ text: String, color: UIColor = UIColor.white, global: Bool = true) {
         let formattedText = NSMutableAttributedString(string: text)
         let range = NSRange(location: 0, length: formattedText.length)
         
@@ -47,21 +49,21 @@ open class TinyConsole {
         TinyConsole.print(formattedText, global: global)
     }
     
-    public static func print(_ text: NSAttributedString, global : Bool = true) {
+    public static func print(_ text: NSAttributedString, global: Bool = true) {
         if let textView = shared.textView {
-            let timeStamped = NSMutableAttributedString(string: shared.currentTimeStamp() + " ")
-            let range = NSRange(location: 0, length: timeStamped.length)
-                
-            // set standard text appearance for time-stamp
-            timeStamped.addAttributes(TinyConsole.textAppearance, range: range)
-            
-            timeStamped.append(text)
-            timeStamped.append(NSAttributedString(string :"\n"))
-                
-            let newText = NSMutableAttributedString(attributedString: textView.attributedText)
-            newText.append(timeStamped)
-                
             DispatchQueue.main.async {
+                let timeStamped = NSMutableAttributedString(string: shared.currentTimeStamp() + " ")
+                let range = NSRange(location: 0, length: timeStamped.length)
+                
+                // set standard text appearance for time-stamp
+                timeStamped.addAttributes(TinyConsole.textAppearance, range: range)
+                
+                timeStamped.append(text)
+                timeStamped.append(NSAttributedString(string: "\n"))
+                
+                let newText = NSMutableAttributedString(attributedString: textView.attributedText)
+                newText.append(timeStamped)
+                
                 textView.attributedText = newText
                 TinyConsole.scrollToBottom()
             }

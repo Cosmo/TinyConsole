@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
         
         let viewController = UINavigationController(rootViewController: MainViewController())
         viewController.title = "Main"
@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             viewController
         ]
         
-        self.window?.rootViewController = TinyConsoleController(rootViewController: tabBarController)
-        self.window?.makeKeyAndVisible()
+        window?.rootViewController = TinyConsoleController(rootViewController: tabBarController)
+        window?.makeKeyAndVisible()
         
         return true
     }

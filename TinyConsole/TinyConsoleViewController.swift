@@ -19,39 +19,39 @@ class TinyConsoleViewController: UIViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        TinyConsole.shared.textView = self.consoleTextView
-        self.view.addSubview(self.consoleTextView)
+        TinyConsole.shared.textView = consoleTextView
+        view.addSubview(consoleTextView)
         
         let addMarkerGesture = UISwipeGestureRecognizer(target: self, action: #selector(addMarker))
-        self.view.addGestureRecognizer(addMarkerGesture)
+        view.addGestureRecognizer(addMarkerGesture)
         
         let addCustomTextGesture = UITapGestureRecognizer(target: self, action: #selector(customText))
         addCustomTextGesture.numberOfTouchesRequired = 2
         if #available(iOS 9, *) {
-            self.view.addGestureRecognizer(addCustomTextGesture)
+            view.addGestureRecognizer(addCustomTextGesture)
         } else {
-            self.consoleTextView.addGestureRecognizer(addCustomTextGesture)
+            consoleTextView.addGestureRecognizer(addCustomTextGesture)
         }
         
         let showAdditionalActionsGesture = UITapGestureRecognizer(target: self, action: #selector(additionalActions))
         showAdditionalActionsGesture.numberOfTouchesRequired = 3
-        self.view.addGestureRecognizer(showAdditionalActionsGesture)
+        view.addGestureRecognizer(showAdditionalActionsGesture)
         
-        self.setupConstraints()
+        setupConstraints()
     }
     
     func setupConstraints() {
-        self.consoleTextView.translatesAutoresizingMaskIntoConstraints = false
+        consoleTextView.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 9, *) {
-            self.consoleTextView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-            self.consoleTextView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-            self.consoleTextView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-            self.consoleTextView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+            consoleTextView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            consoleTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            consoleTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            consoleTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         } else {
-            NSLayoutConstraint(item: self.consoleTextView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
-            NSLayoutConstraint(item: self.consoleTextView, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
-            NSLayoutConstraint(item: self.consoleTextView, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
-            NSLayoutConstraint(item: self.consoleTextView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+            NSLayoutConstraint(item: consoleTextView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+            NSLayoutConstraint(item: consoleTextView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+            NSLayoutConstraint(item: consoleTextView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+            NSLayoutConstraint(item: consoleTextView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
         }
     }
     
@@ -73,7 +73,7 @@ class TinyConsoleViewController: UIViewController {
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     func additionalActions(sender: UITapGestureRecognizer) {
@@ -103,7 +103,7 @@ class TinyConsoleViewController: UIViewController {
         alert.addAction(clearAction)
         alert.addAction(cancelAction)
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     func addMarker(sender: UISwipeGestureRecognizer) {
