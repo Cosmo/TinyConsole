@@ -51,19 +51,19 @@ open class TinyConsole {
     
     public static func print(_ text: NSAttributedString, global: Bool = true) {
         if let textView = shared.textView {
-            let timeStamped = NSMutableAttributedString(string: shared.currentTimeStamp() + " ")
-            let range = NSRange(location: 0, length: timeStamped.length)
-                
-            // set standard text appearance for time-stamp
-            timeStamped.addAttributes(TinyConsole.textAppearance, range: range)
-            
-            timeStamped.append(text)
-            timeStamped.append(NSAttributedString(string :"\n"))
-                
-            let newText = NSMutableAttributedString(attributedString: textView.attributedText)
-            newText.append(timeStamped)
-                
             DispatchQueue.main.async {
+                let timeStamped = NSMutableAttributedString(string: shared.currentTimeStamp() + " ")
+                let range = NSRange(location: 0, length: timeStamped.length)
+                
+                // set standard text appearance for time-stamp
+                timeStamped.addAttributes(TinyConsole.textAppearance, range: range)
+                
+                timeStamped.append(text)
+                timeStamped.append(NSAttributedString(string: "\n"))
+                
+                let newText = NSMutableAttributedString(attributedString: textView.attributedText)
+                newText.append(timeStamped)
+                
                 textView.attributedText = newText
                 TinyConsole.scrollToBottom()
             }
