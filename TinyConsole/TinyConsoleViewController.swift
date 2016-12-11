@@ -10,7 +10,8 @@ import UIKit
 import MessageUI
 
 class TinyConsoleViewController: UIViewController {
-    let consoleTextView: UITextView = {
+    
+    private let consoleTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = UIColor.black
         textView.isEditable = false
@@ -40,19 +41,9 @@ class TinyConsoleViewController: UIViewController {
         setupConstraints()
     }
     
-    func setupConstraints() {
-        consoleTextView.translatesAutoresizingMaskIntoConstraints = false
-        if #available(iOS 9, *) {
-            consoleTextView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            consoleTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            consoleTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            consoleTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        } else {
-            NSLayoutConstraint(item: consoleTextView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
-            NSLayoutConstraint(item: consoleTextView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
-            NSLayoutConstraint(item: consoleTextView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
-            NSLayoutConstraint(item: consoleTextView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
-        }
+    private func setupConstraints() {
+        
+        consoleTextView.attach(anchors: [.top, .bottom], to: view)
     }
     
     func customText(sender: UITapGestureRecognizer) {
