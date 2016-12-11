@@ -37,6 +37,12 @@ class MainViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        TinyConsole.print("Welcome to TinyConsole")
+        TinyConsole.addMarker()
+        TinyConsole.print("NOW", color: UIColor.red)
+        TinyConsole.print("IN", color: UIColor.green)
+        TinyConsole.print("COLOR", color: UIColor.blue)
+        TinyConsole.addMarker()
     }
     
     func setupNavigationItems() {
