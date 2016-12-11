@@ -10,41 +10,49 @@ import UIKit
 import TinyConsole
 
 class MainViewController: UITableViewController {
+    var tableViewDelegate: UITableViewDelegate
+    var tableViewDataSource: UITableViewDataSource
+    
+    init() {
+        tableViewDelegate = MainTableViewDelegate()
+        tableViewDataSource = MainTableViewDataSource()
+        super.init(style: UITableViewStyle.plain)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
+        (tableViewDataSource as? MainTableViewDataSource)?.registerCellsForTableView(self.tableView)
+        tableView.delegate = tableViewDelegate
+        tableView.dataSource = tableViewDataSource
+        
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.white
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "default")
+        setupNavigationItems()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add Log", style: UIBarButtonItemStyle.plain, target: self, action: #selector(addLog))
-        self.navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(title: "Add Marker", style: UIBarButtonItemStyle.plain, target: self, action: #selector(addMarker)),
-            UIBarButtonItem(title: "Clear", style: UIBarButtonItemStyle.plain, target: self, action: #selector(clear)),
+    }
+    
+    func setupNavigationItems() {
+        navigationItem.leftBarButtonItems = [
+            UIBarButtonItem(title: "Add Log", style: UIBarButtonItemStyle.plain, target: self, action: #selector(addLog))
+        ]
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem( title: "Add Marker", style: UIBarButtonItemStyle.plain, target: self, action: #selector(addMarker)),
+            UIBarButtonItem( title: "Clear", style: UIBarButtonItemStyle.plain, target: self, action: #selector(clear)),
         ]
     }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath)
-        
-        cell.textLabel?.text = "Row \(indexPath.row)"
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        TinyConsole.print("Tapped on \(indexPath.row)")
-    }
-    
+}
+
+extension MainViewController {
     func addLog() {
-        TinyConsole.print("hello world")
+        TinyConsole.print("Hello World")
     }
     
     func clear() {
@@ -55,4 +63,3 @@ class MainViewController: UITableViewController {
         TinyConsole.addMarker()
     }
 }
-

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		450284DE1DFD878C00922381 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450284DD1DFD878C00922381 /* DataSource.swift */; };
+		450284E01DFD87BA00922381 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450284DF1DFD87BA00922381 /* Delegate.swift */; };
 		457B894F1DF4DB74001DD49C /* TinyConsole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4585FDCB1DEC54B800DDF5EB /* TinyConsole.framework */; };
 		457B89501DF4DB74001DD49C /* TinyConsole.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4585FDCB1DEC54B800DDF5EB /* TinyConsole.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4585FDD81DEC54D300DDF5EB /* TinyConsole.h in Headers */ = {isa = PBXBuildFile; fileRef = 4585FDD61DEC54D300DDF5EB /* TinyConsole.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +46,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		450284DD1DFD878C00922381 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		450284DF1DFD87BA00922381 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		4585FDCB1DEC54B800DDF5EB /* TinyConsole.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConsole.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4585FDD51DEC54D300DDF5EB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4585FDD61DEC54D300DDF5EB /* TinyConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyConsole.h; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 			children = (
 				4585FDE51DEC58BB00DDF5EB /* AppDelegate.swift */,
 				4585FDE71DEC58BB00DDF5EB /* MainViewController.swift */,
+				450284DD1DFD878C00922381 /* DataSource.swift */,
+				450284DF1DFD87BA00922381 /* Delegate.swift */,
 				4585FDEC1DEC58BB00DDF5EB /* Assets.xcassets */,
 				4585FDEE1DEC58BB00DDF5EB /* LaunchScreen.storyboard */,
 				4585FDF11DEC58BB00DDF5EB /* Info.plist */,
@@ -251,6 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				450284E01DFD87BA00922381 /* Delegate.swift in Sources */,
+				450284DE1DFD878C00922381 /* DataSource.swift in Sources */,
 				4585FDE81DEC58BB00DDF5EB /* MainViewController.swift in Sources */,
 				4585FDE61DEC58BB00DDF5EB /* AppDelegate.swift in Sources */,
 			);
