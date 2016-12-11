@@ -14,7 +14,7 @@ open class TinyConsoleController: UIViewController {
     ///
     /// - collapsed: the console is hidden
     /// - expanded: the console is shown
-    enum WindowMode {
+    private enum WindowMode {
         case collapsed
         case expanded
     }
@@ -94,9 +94,9 @@ open class TinyConsoleController: UIViewController {
     // MARK: - Private Methods -
     private func setupConstraints() {
         
-        rootViewController.view.attach(anchor: .top, to: view)
+        rootViewController.view.attach(anchors: [.top], to: view)
         
-        consoleViewController.view.attach(anchor: .bottom, to: view)
+        consoleViewController.view.attach(anchors: [.bottom], to: view)
         consoleViewHeightConstraint?.isActive = true
         
         if #available(iOS 9, *) {
@@ -109,74 +109,6 @@ open class TinyConsoleController: UIViewController {
                                relatedBy: .equal,
                                toItem: consoleViewController.view,
                                attribute: .top,
-                               multiplier: 1.0,
-                               constant: 0)
-                .isActive = true
-        }
-    }
-}
-
-fileprivate extension UIView {
-    
-    enum Anchor {
-        case top
-        case bottom
-    }
-    
-    func attach(anchor: Anchor, to view: UIView) {
-        
-        translatesAutoresizingMaskIntoConstraints = false
-        
-        if #available(iOS 9, *) {
-            
-            switch anchor {
-            case .top:
-                topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            case .bottom:
-                bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-            }
-            
-            leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            
-        } else {
-            
-            switch anchor {
-            case .top:
-                NSLayoutConstraint(item: self,
-                                   attribute: .top,
-                                   relatedBy: .equal,
-                                   toItem: view,
-                                   attribute: .top,
-                                   multiplier: 1.0,
-                                   constant: 0)
-                    .isActive = true
-            case .bottom:
-                NSLayoutConstraint(item: self,
-                                   attribute: .bottom,
-                                   relatedBy: .equal,
-                                   toItem: view,
-                                   attribute: .bottom,
-                                   multiplier: 1.0,
-                                   constant: 0)
-                    .isActive = true
-            }
-            
-            // left anchor
-            NSLayoutConstraint(item: self,
-                               attribute: .left,
-                               relatedBy: .equal,
-                               toItem: view,
-                               attribute: .left,
-                               multiplier: 1.0,
-                               constant: 0)
-                .isActive = true
-            // right anchor
-            NSLayoutConstraint(item: self,
-                               attribute: .right,
-                               relatedBy: .equal,
-                               toItem: view,
-                               attribute: .right,
                                multiplier: 1.0,
                                constant: 0)
                 .isActive = true
