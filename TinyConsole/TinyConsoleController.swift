@@ -91,9 +91,9 @@ open class TinyConsoleController: UIViewController {
             return
         }
         
-        rootViewControllerView.attach(anchor: .Top, to: view)
+        rootViewControllerView.attach(anchor: .top, to: view)
         
-        consoleViewController.view.attach(anchor: .Bottom, to: view)
+        consoleViewController.view.attach(anchor: .bottom, to: view)
         consoleViewHeightConstraint?.isActive = true
         
         if #available(iOS 9, *) {
@@ -118,8 +118,8 @@ open class TinyConsoleController: UIViewController {
 fileprivate extension UIView {
     
     enum Anchor {
-        case Top
-        case Bottom
+        case top
+        case bottom
     }
     
     func attach(anchor: Anchor, to view: UIView) {
@@ -129,9 +129,9 @@ fileprivate extension UIView {
         if #available(iOS 9, *) {
             
             switch anchor {
-            case .Top:
+            case .top:
                 topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            case .Bottom:
+            case .bottom:
                 bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
             }
             
@@ -141,9 +141,9 @@ fileprivate extension UIView {
         } else {
             
             switch anchor {
-            case .Top:
+            case .top:
                 NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
-            case .Bottom:
+            case .bottom:
                 NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
             }
             
