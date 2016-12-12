@@ -70,15 +70,30 @@ class TinyConsoleViewController: UIViewController {
     func additionalActions(sender: UITapGestureRecognizer) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        let sendMail = UIAlertAction(title: "Send Email", style: UIAlertActionStyle.default) {
+        let sendMailAction = UIAlertAction(title: "Send Email", style: UIAlertActionStyle.default) {
             (action: UIAlertAction) in
             DispatchQueue.main.async {
                 if let text = TinyConsole.shared.textView?.text {
-                    let composeViewController = MFMailComposeViewController()
-                    composeViewController.mailComposeDelegate = self
-                    composeViewController.setSubject("Console Log")
-                    composeViewController.setMessageBody(text, isHTML: false)
-                    self.present(composeViewController, animated: true, completion: nil)
+                    
+                    if MFMailComposeViewController.canSendMail() {
+                        
+                        let composeViewController = MFMailComposeViewController()
+                        
+                        composeViewController.mailComposeDelegate = self
+                        composeViewController.setSubject("Console Log")
+                        composeViewController.setMessageBody(text, isHTML: false)
+                        
+                        self.present(composeViewController, animated: true, completion: nil)
+                        
+                    } else {
+                        
+                        let alert = UIAlertController(title: "Account not configured",
+                                                      message: "Please configure e-mail account in Mail.app",
+                                                      preferredStyle: UIAlertControllerStyle.alert)
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
         }
@@ -90,7 +105,7 @@ class TinyConsoleViewController: UIViewController {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
         
-        alert.addAction(sendMail)
+        alert.addAction(sendMailAction)
         alert.addAction(clearAction)
         alert.addAction(cancelAction)
         
