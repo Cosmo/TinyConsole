@@ -32,7 +32,7 @@ class TinyConsoleViewController: UIViewController {
     func customText(sender: UITapGestureRecognizer) {
         let alert = UIAlertController(title: "Custom Log", message: "Enter text you want to log.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addTextField { (textField: UITextField) in
-            textField.keyboardType = .alphabet
+            textField.keyboardType = .default
         }
         
         alert.addAction(UIAlertAction.ok(with: alert))
