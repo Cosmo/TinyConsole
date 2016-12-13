@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  TinyConsole
+
+  Created by Devran Uenal on 13.12.16.
+
+*/
+
+"New Entry" = "New Entry";
+"Enter text you want to log." = "Enter text you want to log.";
+"Cancel" = "Cancel";
+"Clear" = "Clear";
+"Add log" = "Add";
+"Send Email" = "Send Email";
+"Console Log" = "Console Log";
+"Account not configured" = "Account not configured";
+"Please configure email account in Mail.app." = "Please configure e-mail account in Mail.app";
+"OK" = "OK";

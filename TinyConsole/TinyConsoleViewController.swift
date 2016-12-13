@@ -30,7 +30,7 @@ class TinyConsoleViewController: UIViewController {
     }
     
     func customText(sender: UITapGestureRecognizer) {
-        let alert = UIAlertController(title: "Custom Log", message: "Enter text you want to log.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "New Entry".localized(), message: "Enter text you want to log.".localized(), preferredStyle: UIAlertControllerStyle.alert)
         alert.addTextField { (textField: UITextField) in
             textField.keyboardType = .default
         }
@@ -94,18 +94,18 @@ extension TinyConsoleViewController: MFMailComposeViewControllerDelegate {
 fileprivate extension UIAlertAction {
     
     static let cancel: UIAlertAction = {
-        UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        UIAlertAction(title: "Cancel".localized(), style: UIAlertActionStyle.cancel, handler: nil)
     }()
     
     static let clear: UIAlertAction = {
-        UIAlertAction(title: "Clear", style: UIAlertActionStyle.destructive) {
+        UIAlertAction(title: "Clear".localized(), style: UIAlertActionStyle.destructive) {
             (action: UIAlertAction) in
             TinyConsole.clear()
         }
     }()
     
     static func ok(with alert: UIAlertController) -> UIAlertAction {
-        return UIAlertAction(title: "Add log", style: UIAlertActionStyle.default) {
+        return UIAlertAction(title: "Add log".localized(), style: UIAlertActionStyle.default) {
             (action: UIAlertAction) in
             if let text = alert.textFields?.first?.text, !text.isEmpty {
                 TinyConsole.print(text)
@@ -114,7 +114,7 @@ fileprivate extension UIAlertAction {
     }
     
     static func send(mail on: UIViewController) -> UIAlertAction {
-        return UIAlertAction(title: "Send Email", style: UIAlertActionStyle.default) {
+        return UIAlertAction(title: "Send Email".localized(), style: UIAlertActionStyle.default) {
             (action: UIAlertAction) in
             DispatchQueue.main.async {
                 if let text = TinyConsole.shared.textView?.text {
@@ -124,17 +124,17 @@ fileprivate extension UIAlertAction {
                         let composeViewController = MFMailComposeViewController()
                         
                         composeViewController.mailComposeDelegate = on as? MFMailComposeViewControllerDelegate
-                        composeViewController.setSubject("Console Log")
+                        composeViewController.setSubject("Console Log".localized())
                         composeViewController.setMessageBody(text, isHTML: false)
                         
                         on.present(composeViewController, animated: true, completion: nil)
                         
                     } else {
                         
-                        let alert = UIAlertController(title: "Account not configured",
-                                                      message: "Please configure e-mail account in Mail.app",
+                        let alert = UIAlertController(title: "Account not configured".localized(),
+                                                      message: "Please configure email account in Mail.app.".localized(),
                                                       preferredStyle: UIAlertControllerStyle.alert)
-                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                        let okAction = UIAlertAction(title: "OK".localized(), style: UIAlertActionStyle.default, handler: nil)
                         alert.addAction(okAction)
                         on.present(alert, animated: true, completion: nil)
                     }
