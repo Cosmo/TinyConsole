@@ -30,7 +30,7 @@ class TinyConsoleViewController: UIViewController {
     }
     
     func customText(sender: UITapGestureRecognizer) {
-        let alert = UIAlertController(title: "New Entry".localized(), message: "Enter text you want to log.".localized(), preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: .newEntry, message: .enterText, preferredStyle: UIAlertControllerStyle.alert)
         alert.addTextField { (textField: UITextField) in
             textField.keyboardType = .default
         }
@@ -94,18 +94,18 @@ extension TinyConsoleViewController: MFMailComposeViewControllerDelegate {
 fileprivate extension UIAlertAction {
     
     static let cancel: UIAlertAction = {
-        UIAlertAction(title: "Cancel".localized(), style: UIAlertActionStyle.cancel, handler: nil)
+        UIAlertAction(title: .cancel, style: UIAlertActionStyle.cancel, handler: nil)
     }()
     
     static let clear: UIAlertAction = {
-        UIAlertAction(title: "Clear".localized(), style: UIAlertActionStyle.destructive) {
+        UIAlertAction(title: .clearConsole, style: UIAlertActionStyle.destructive) {
             (action: UIAlertAction) in
             TinyConsole.clear()
         }
     }()
     
     static func ok(with alert: UIAlertController) -> UIAlertAction {
-        return UIAlertAction(title: "Add log".localized(), style: UIAlertActionStyle.default) {
+        return UIAlertAction(title: .addLog, style: UIAlertActionStyle.default) {
             (action: UIAlertAction) in
             if let text = alert.textFields?.first?.text, !text.isEmpty {
                 TinyConsole.print(text)
@@ -114,7 +114,7 @@ fileprivate extension UIAlertAction {
     }
     
     static func send(mail on: UIViewController) -> UIAlertAction {
-        return UIAlertAction(title: "Send Email".localized(), style: UIAlertActionStyle.default) {
+        return UIAlertAction(title: .sendMail, style: UIAlertActionStyle.default) {
             (action: UIAlertAction) in
             DispatchQueue.main.async {
                 if let text = TinyConsole.shared.textView?.text {
@@ -124,17 +124,16 @@ fileprivate extension UIAlertAction {
                         let composeViewController = MFMailComposeViewController()
                         
                         composeViewController.mailComposeDelegate = on as? MFMailComposeViewControllerDelegate
-                        composeViewController.setSubject("Console Log".localized())
+                        composeViewController.setSubject(.consoleEmailSubject)
                         composeViewController.setMessageBody(text, isHTML: false)
                         
                         on.present(composeViewController, animated: true, completion: nil)
                         
                     } else {
-                        
-                        let alert = UIAlertController(title: "Account not configured".localized(),
-                                                      message: "Please configure email account in Mail.app.".localized(),
+                        let alert = UIAlertController(title: .accountNotConfigured,
+                                                      message: .configureEmailAccount,
                                                       preferredStyle: UIAlertControllerStyle.alert)
-                        let okAction = UIAlertAction(title: "OK".localized(), style: UIAlertActionStyle.default, handler: nil)
+                        let okAction = UIAlertAction(title: .ok, style: UIAlertActionStyle.default, handler: nil)
                         alert.addAction(okAction)
                         on.present(alert, animated: true, completion: nil)
                     }
@@ -153,3 +152,26 @@ fileprivate extension UITextView {
         return textView
     }()
 }
+
+// MARK: - Localization - Actions
+fileprivate extension String {
+    static let ok = "OK".localized()
+    static let cancel = "Cancel".localized()
+    static let addLog = "Add log".localized()
+    static let clearConsole = "Clear".localized()
+    static let sendMail = "Send Email".localized()
+}
+
+// MARK: - Localization - New Entry
+fileprivate extension String {
+    static let newEntry = "New Entry".localized()
+    static let enterText = "Enter text you want to log.".localized()
+}
+
+// MARK: - Localization - Email
+fileprivate extension String {
+    static let consoleEmailSubject = "Console Log".localized()
+    static let accountNotConfigured = "Account not configured".localized()
+    static let configureEmailAccount = "Please configure email account in Mail.app.".localized()
+}
+
