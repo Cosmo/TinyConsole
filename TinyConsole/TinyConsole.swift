@@ -69,7 +69,7 @@ open class TinyConsole {
         timeStampText.addAttributes(textAppearance, range: timeStampText.range)
         
         timeStampText.append(text)
-        timeStampText.append(NSAttributedString.break())
+        timeStampText.append(.break())
         
         let newText = NSMutableAttributedString(attributedString: textView.attributedText)
         newText.append(timeStampText)
