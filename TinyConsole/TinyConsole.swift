@@ -9,84 +9,123 @@
 import UIKit
 
 open class TinyConsole {
-    public static var shared = TinyConsole()
+    
+    // MARK: - Public Properties -
+    public static let shared = TinyConsole()
     var textView: UITextView?
     
-    public static var textAppearance = [
-        NSFontAttributeName: UIFont(name: "Menlo", size: 12.0)!,
-        NSForegroundColorAttributeName: UIColor.white]
+    // MARK: - Private Accessors -
+    private static let textAppearance = [
+        NSFontAttributeName: UIFont.menlo(),
+        NSForegroundColorAttributeName: UIColor.white
+    ]
     
-    private init() {
-    }
-    
-    var dateFormatter: DateFormatter = {
+    private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = DateFormatter.Style.none
-        formatter.timeStyle = DateFormatter.Style.medium
+        formatter.dateStyle = .none
+        formatter.timeStyle = .medium
         return formatter
     }()
     
-    func currentTimeStamp() -> String {
+    var currentTimeStamp: String {
         return dateFormatter.string(from: Date())
     }
     
+    // MARK: - Public Methods -
     public static func scrollToBottom() {
-        if let textView = shared.textView, textView.bounds.height < textView.contentSize.height {
-            textView.layoutManager.ensureLayout(for: textView.textContainer)
-            let offset = CGPoint(x: 0, y: (textView.contentSize.height - textView.frame.size.height))
-            textView.setContentOffset(offset, animated: true)
-        }
+        
+        guard let
+            textView = shared.textView,
+            textView.boundsHeightLessThenContentSizeHeight() else { return }
+        
+        textView.layoutManager.ensureLayout(for: textView.textContainer)
+        let offset = CGPoint(x: 0, y: (textView.contentSize.height - textView.frame.size.height))
+        textView.setContentOffset(offset, animated: true)
     }
     
     public static func print(_ text: String, color: UIColor = UIColor.white, global: Bool = true) {
         let formattedText = NSMutableAttributedString(string: text)
-        let range = NSRange(location: 0, length: formattedText.length)
         
         // set standard text appearance and override foreground color attribute
-        formattedText.addAttributes(TinyConsole.textAppearance, range: range)
-        formattedText.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+        formattedText.addAttributes(textAppearance, range: formattedText.range)
+        formattedText.addAttribute(NSForegroundColorAttributeName, value: color, range: formattedText.range)
         
-        TinyConsole.print(formattedText, global: global)
+        print(formattedText, global: global)
     }
     
     public static func print(_ text: NSAttributedString, global: Bool = true) {
-        if let textView = shared.textView {
-            DispatchQueue.main.async {
-                let timeStamped = NSMutableAttributedString(string: shared.currentTimeStamp() + " ")
-                let range = NSRange(location: 0, length: timeStamped.length)
-                
-                // set standard text appearance for time-stamp
-                timeStamped.addAttributes(TinyConsole.textAppearance, range: range)
-                
-                timeStamped.append(text)
-                timeStamped.append(NSAttributedString(string: "\n"))
-                
-                let newText = NSMutableAttributedString(attributedString: textView.attributedText)
-                newText.append(timeStamped)
-                
-                textView.attributedText = newText
-                TinyConsole.scrollToBottom()
+        
+        defer { // when we leave this method and global is true, we want to print it to console
+            if global {
+                Swift.print(text.string)
             }
         }
-            
-        if global {
-            Swift.print(text.string)
+        
+        guard let textView = shared.textView else { return }
+        
+        let timeStampText = NSMutableAttributedString(string: "\(shared.currentTimeStamp) ")
+        
+        // set standard text appearance for time-stamp
+        timeStampText.addAttributes(textAppearance, range: timeStampText.range)
+        
+        timeStampText.append(text)
+        timeStampText.append(.break())
+        
+        let newText = NSMutableAttributedString(attributedString: textView.attributedText)
+        newText.append(timeStampText)
+        
+        DispatchQueue.main.async {
+            textView.attributedText = newText
+            scrollToBottom()
         }
     }
     
     public static func clear() {
         DispatchQueue.main.async {
-            shared.textView?.text = ""
-            TinyConsole.scrollToBottom()
+            shared.textView?.clear()
+            scrollToBottom()
         }
     }
     
     public static func error(_ text: String) {
-        TinyConsole.print(text, color: UIColor.red)
+        print(text, color: UIColor.red)
     }
     
     public static func addMarker() {
-        TinyConsole.print("-----------", color: UIColor.red)
+        print("-----------", color: UIColor.red)
+    }
+    
+    // MARK: - Private Methods -
+    private init() { }
+}
+
+
+private extension UIFont {
+    
+    static func menlo(with size: CGFloat = 12.0) -> UIFont {
+        return UIFont(name: "Menlo", size: size)!
+    }
+}
+
+private extension NSAttributedString {
+    
+    static func `break`() -> NSAttributedString {
+        return NSAttributedString(string: "\n")
+    }
+    
+    var range: NSRange {
+        return NSRange(location: 0, length: length)
+    }
+}
+
+private extension UITextView {
+    
+    func clear() {
+        text = ""
+    }
+    
+    func boundsHeightLessThenContentSizeHeight() -> Bool {
+        return bounds.height < contentSize.height
     }
 }
 
