@@ -55,7 +55,7 @@ open class TinyConsole {
     
     public static func print(_ text: NSAttributedString, global: Bool = true) {
         
-        defer { // when we leave this method and global ist true we want to print it to console
+        defer { // when we leave this method and global is true, we want to print it to console
             if global {
                 Swift.print(text.string)
             }
