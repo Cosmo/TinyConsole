@@ -19,6 +19,7 @@
 		4585FDE81DEC58BB00DDF5EB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4585FDE71DEC58BB00DDF5EB /* MainViewController.swift */; };
 		4585FDED1DEC58BB00DDF5EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4585FDEC1DEC58BB00DDF5EB /* Assets.xcassets */; };
 		4585FDF01DEC58BB00DDF5EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4585FDEE1DEC58BB00DDF5EB /* LaunchScreen.storyboard */; };
+		7ADB76FB1E0D5AEE001111D5 /* TinyConsoleThreeTapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB76FA1E0D5AEE001111D5 /* TinyConsoleThreeTapDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		4585FDEC1DEC58BB00DDF5EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4585FDEF1DEC58BB00DDF5EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4585FDF11DEC58BB00DDF5EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ADB76FA1E0D5AEE001111D5 /* TinyConsoleThreeTapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyConsoleThreeTapDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				4585FDD91DEC552600DDF5EB /* TinyConsoleController.swift */,
 				4585FDDD1DEC559D00DDF5EB /* TinyConsoleViewController.swift */,
 				4585FDDB1DEC557000DDF5EB /* TinyConsole.swift */,
+				7ADB76FA1E0D5AEE001111D5 /* TinyConsoleThreeTapDelegate.swift */,
 			);
 			path = TinyConsole;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4585FDDA1DEC552600DDF5EB /* TinyConsoleController.swift in Sources */,
+				7ADB76FB1E0D5AEE001111D5 /* TinyConsoleThreeTapDelegate.swift in Sources */,
 				4585FDDE1DEC559D00DDF5EB /* TinyConsoleViewController.swift in Sources */,
 				4585FDDC1DEC557000DDF5EB /* TinyConsole.swift in Sources */,
 			);
