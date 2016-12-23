@@ -17,6 +17,7 @@ class TinyConsoleViewController: UIViewController {
         return textView
     }()
     
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         TinyConsole.shared.textView = consoleTextView
@@ -76,31 +77,44 @@ class TinyConsoleViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    
     func additionalActions(sender: UITapGestureRecognizer) {
+        
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        let sendMail = UIAlertAction(title: "Send Email", style: UIAlertActionStyle.default) {
-            (action: UIAlertAction) in
-            DispatchQueue.main.async {
-                if let text = TinyConsole.shared.textView?.text {
-                    let composeViewController = MFMailComposeViewController()
-                    composeViewController.mailComposeDelegate = self
-                    composeViewController.setSubject("Console Log")
-                    composeViewController.setMessageBody(text, isHTML: false)
-                    self.present(composeViewController, animated: true, completion: nil)
-                }
-            }
-        }
-        
-        let clearAction = UIAlertAction(title: "Clear", style: UIAlertActionStyle.destructive) {
-            (action: UIAlertAction) in
-            TinyConsole.clear()
-        }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
         
-        alert.addAction(sendMail)
-        alert.addAction(clearAction)
+        if TinyConsole.threeTapDelegate?.isWithDefaultActions ?? true{
+            let defaultActions = [
+                UIAlertAction(title: "Send Email", style: UIAlertActionStyle.default) {
+                    (action: UIAlertAction) in
+                    DispatchQueue.main.async {
+                        if let text = TinyConsole.shared.textView?.text {
+                            let composeViewController = MFMailComposeViewController()
+                            composeViewController.mailComposeDelegate = self
+                            composeViewController.setSubject("Console Log")
+                            composeViewController.setMessageBody(text, isHTML: false)
+                            self.present(composeViewController, animated: true, completion: nil)
+                        }
+                    }
+                },
+                UIAlertAction(title: "Clear", style: UIAlertActionStyle.destructive) {
+                    (action: UIAlertAction) in
+                    TinyConsole.clear()
+                }
+            ]
+            for action in defaultActions{
+                alert.addAction(action)
+            }
+        }
+        
+        if let delegate = TinyConsole.threeTapDelegate{
+            for index in 0 ..< delegate.numberOfAdditionalActions{
+                alert.addAction(UIAlertAction(title: delegate.actionTitle(atIndex: index), style: delegate.actionStyle?(atIndex: index) ?? .default, handler: delegate.actionHandler?(atIndex: index)))
+            }
+        }
+        
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)

@@ -88,6 +88,13 @@ open class TinyConsole {
     public static func addMarker() {
         TinyConsole.print("-----------", color: UIColor.red)
     }
+    
+    // MARK: - Actions
+    /**
+     3 Finger Tap action delegate
+     */
+    public weak static var threeTapDelegate: TinyConsoleThreeTapDelegate?
+    
 }
 
 // deprecated functions
