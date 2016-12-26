@@ -63,6 +63,7 @@ open class TinyConsoleController: UIViewController {
     public init(rootViewController: UIViewController) {
         self.rootViewController = rootViewController
         super.init(nibName: nil, bundle: nil)
+        TinyConsole.shared.consoleController = self
     }
     
     init(){

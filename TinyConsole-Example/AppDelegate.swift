@@ -25,8 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             viewController
         ]
         
+        // deprecated
+        // window?.rootViewController = TinyConsoleController(rootViewController: tabBarController)
+        
+        
+        
         // TinyConsole with default gesture recognizers
-        //
         // window?.rootViewController = TinyConsole.createViewController(rootViewController: tabBarController)
         
         // TinyConsole with custom gesture reconizers
