@@ -10,7 +10,7 @@ import UIKit
 import TinyConsole
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, TinyConsoleThreeTapDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -25,29 +25,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TinyConsoleThreeTapDelega
             viewController
         ]
         
-        window?.rootViewController = TinyConsoleController(rootViewController: tabBarController)
-        window?.makeKeyAndVisible()
+        // TinyConsole with default gesture recognizers
+        //
+        // window?.rootViewController = TinyConsole.createViewController(rootViewController: tabBarController)
         
-        // Add custom 3 finger tap delegate
-        TinyConsole.threeTapDelegate = self
+        // TinyConsole with custom gesture reconizers
+        window?.rootViewController = TinyConsole.createViewController(rootViewController: tabBarController, withDefaultGestureConfiguration: false)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(consoleTapped))
+        TinyConsole.addGestureRecognizer(tapGestureRecognizer)
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(consoleSwiped))
+        TinyConsole.addGestureRecognizer(swipeGestureRecognizer)
+        
+        window?.makeKeyAndVisible()
         
         return true
     }
     
-    // MARK: - TinyConsoleThreeTapDelegate
-    var isWithDefaultActions: Bool = true
-    var numberOfAdditionalActions: Int = 3
-    func actionTitle(atIndex index: Int) -> String {
-        return "Custom Action #\(index)"
+    func consoleTapped(sender: UITapGestureRecognizer) {
+        TinyConsole.print("console tapped, do nothing", global: true)
     }
-    func actionStyle(atIndex index: Int) -> UIAlertActionStyle {
-        return .default
-    }
-    func actionHandler(atIndex index: Int) -> ((UIAlertAction) -> Void)? {
-        return { _ in
-            let randomColor = UIColor(red: CGFloat(arc4random())/CGFloat(UINT32_MAX), green: CGFloat(arc4random())/CGFloat(UINT32_MAX), blue: CGFloat(arc4random())/CGFloat(UINT32_MAX), alpha: 0.8)
-            TinyConsole.print("custom action #\(index)", color: randomColor, global: true)
-        }
+    
+    func consoleSwiped(sender: UISwipeGestureRecognizer) {
+        TinyConsole.print("Console swipped, change to red view controller", global: true)
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.red
+        TinyConsole.set(rootViewController: vc)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

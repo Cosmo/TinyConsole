@@ -11,12 +11,14 @@ import UIKit
 open class TinyConsole {
     public static var shared = TinyConsole()
     var textView: UITextView?
+    var consoleController: TinyConsoleController
     
     public static var textAppearance = [
         NSFontAttributeName: UIFont(name: "Menlo", size: 12.0)!,
         NSForegroundColorAttributeName: UIColor.white]
     
     private init() {
+        consoleController = TinyConsoleController()
     }
     
     var dateFormatter: DateFormatter = {
@@ -28,6 +30,20 @@ open class TinyConsole {
     
     func currentTimeStamp() -> String {
         return dateFormatter.string(from: Date())
+    }
+    
+    // MARK: - Create view contoller
+    public static func createViewController(rootViewController: UIViewController,
+                                            withDefaultGestureConfiguration: Bool = true) -> UIViewController {
+        set(rootViewController: rootViewController)
+        if withDefaultGestureConfiguration {
+            useDefaultGestureConfiguration()
+        }
+        return shared.consoleController
+    }
+    
+    public static func set(rootViewController: UIViewController) {
+        shared.consoleController.rootViewController = rootViewController
     }
     
     public static func scrollToBottom() {
@@ -89,12 +105,18 @@ open class TinyConsole {
         TinyConsole.print("-----------", color: UIColor.red)
     }
     
-    // MARK: - Actions
-    /**
-     3 Finger Tap action delegate
-     */
-    public weak static var threeTapDelegate: TinyConsoleThreeTapDelegate?
+    // MARK: - Configure gesture recognizer
+    public static func useDefaultGestureConfiguration() {
+        shared.consoleController.consoleViewController.useDefaultGestureConfiguration()
+    }
     
+    public static func addGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer){
+        shared.consoleController.consoleViewController.view.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    public static func removeGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer){
+        shared.consoleController.consoleViewController.view.removeGestureRecognizer(gestureRecognizer)
+    }
 }
 
 // deprecated functions
