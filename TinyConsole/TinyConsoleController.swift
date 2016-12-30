@@ -14,7 +14,7 @@ open class TinyConsoleController: UIViewController {
     ///
     /// - collapsed: the console is hidden
     /// - expanded: the console is shown
-    private enum WindowMode {
+    public enum WindowMode {
         case collapsed
         case expanded
     }
@@ -45,7 +45,7 @@ open class TinyConsoleController: UIViewController {
         return consoleFrame
     }()
     
-    private var consoleWindowMode: WindowMode = .collapsed {
+    public var consoleWindowMode: WindowMode = .collapsed {
         didSet {
             consoleViewHeightConstraint?.isActive = false
             consoleViewHeightConstraint?.constant = consoleWindowMode == .collapsed ? 0 : self.expandedHeight
