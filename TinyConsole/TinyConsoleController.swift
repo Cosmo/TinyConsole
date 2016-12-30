@@ -35,7 +35,7 @@ open class TinyConsoleController: UIViewController {
     }()
     
     private let consoleFrameHeight: CGFloat = 120
-    private let expandedHeight: CGFloat = 140
+    private var expandedHeight: CGFloat = 140
     
     private lazy var consoleFrame: CGRect = {
         
@@ -56,6 +56,12 @@ open class TinyConsoleController: UIViewController {
     // MARK: - Initializer -
     public init(rootViewController: UIViewController) {
         self.rootViewController = rootViewController
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    public init(rootViewController: UIViewController, expandedHeight: CGFloat) {
+        self.rootViewController = rootViewController
+        self.expandedHeight = expandedHeight
         super.init(nibName: nil, bundle: nil)
     }
     
