@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 🚦📱 TinyConsole, a tiny log console to display information while using your iOS app.
 open class TinyConsole {
     public static var shared = TinyConsole()
     var textView: UITextView?
