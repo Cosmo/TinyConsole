@@ -79,6 +79,15 @@ open class TinyConsoleController: UIViewController {
     // MARK: - Public Methods -
     public var shakeEnabled: Bool = true
     
+    public func update(windowMode: WindowMode, animated: Bool) {
+        consoleWindowMode = windowMode
+        if animated == true {
+            UIView.animate(withDuration: 0.25) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,10 +106,7 @@ open class TinyConsoleController: UIViewController {
     
     open override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if (motion == UIEventSubtype.motionShake && shakeEnabled == true) {
-            consoleWindowMode = consoleWindowMode == .collapsed ? .expanded : .collapsed
-            UIView.animate(withDuration: 0.25) {
-                self.view.layoutIfNeeded()
-            }
+            self.update(windowMode: (consoleWindowMode == .collapsed ? .expanded : .collapsed), animated: true)
         }
     }
     
