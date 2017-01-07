@@ -12,6 +12,9 @@ open class TinyConsole {
     public static var shared = TinyConsole()
     var textView: UITextView?
     
+    // note: doesn't need to be weak because of textView
+    weak var tinyConsoleViewController: TinyConsoleViewController?
+    
     public static var textAppearance = [
         NSFontAttributeName: UIFont(name: "Menlo", size: 12.0)!,
         NSForegroundColorAttributeName: UIColor.white]
