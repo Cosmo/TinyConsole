@@ -56,14 +56,6 @@ open class TinyConsoleController: UIViewController {
         return consoleFrame
     }()
     
-    private var consoleWindowMode: WindowMode = .collapsed {
-        didSet {
-            consoleViewHeightConstraint?.isActive = false
-            consoleViewHeightConstraint?.constant = consoleWindowMode == .collapsed ? 0 : self.expandedHeight
-            consoleViewHeightConstraint?.isActive = true
-        }
-    }
-    
     // MARK: - Initializer -
     public init(rootViewController: UIViewController) {
         self.rootViewController = rootViewController
@@ -78,6 +70,14 @@ open class TinyConsoleController: UIViewController {
     
     // MARK: - Public Methods -
     public var shakeEnabled: Bool = true
+    
+    public var consoleWindowMode: WindowMode = .collapsed {
+        didSet {
+            consoleViewHeightConstraint?.isActive = false
+            consoleViewHeightConstraint?.constant = consoleWindowMode == .collapsed ? 0 : self.expandedHeight
+            consoleViewHeightConstraint?.isActive = true
+        }
+    }
     
     public func update(windowMode: WindowMode, animated: Bool) {
         consoleWindowMode = windowMode
