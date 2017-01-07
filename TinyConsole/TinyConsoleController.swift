@@ -14,9 +14,20 @@ open class TinyConsoleController: UIViewController {
     ///
     /// - collapsed: the console is hidden
     /// - expanded: the console is shown
-    enum WindowMode {
-        case collapsed
+    public enum WindowMode: Int, CustomStringConvertible {
+        case collapsed = 0
         case expanded
+        
+        public var description: String {
+            get {
+                switch self {
+                case .collapsed:
+                    return "Collapsed"
+                case .expanded:
+                    return "Expanded"
+                }
+            }
+        }
     }
     
     // MARK: - Private Properties -
