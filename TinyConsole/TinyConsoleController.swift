@@ -19,13 +19,11 @@ open class TinyConsoleController: UIViewController {
         case expanded
         
         public var description: String {
-            get {
-                switch self {
-                case .collapsed:
-                    return "Collapsed"
-                case .expanded:
-                    return "Expanded"
-                }
+            switch self {
+            case .collapsed:
+                return "Collapsed"
+            case .expanded:
+                return "Expanded"
             }
         }
     }
