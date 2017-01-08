@@ -22,9 +22,7 @@ class TinyConsoleViewController: UIViewController {
         TinyConsole.shared.textView = consoleTextView
         view.addSubview(consoleTextView)
         
-        if let parent = self.parent {
-            TinyConsole.shared.tinyConsoleController = parent as? TinyConsoleController
-        }
+        TinyConsole.shared.tinyConsoleController = self.parent as? TinyConsoleController
     
         let addMarkerGesture = UISwipeGestureRecognizer(target: self, action: #selector(addMarker))
         view.addGestureRecognizer(addMarkerGesture)
