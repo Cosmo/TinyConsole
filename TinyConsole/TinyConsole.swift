@@ -32,8 +32,10 @@ open class TinyConsole {
     
     var shakeEnabled: Bool {
         get {
-            return TinyConsole.shared.tinyConsoleController!.shakeEnabled
-            
+            if let viewController = TinyConsole.shared.tinyConsoleController {
+                return viewController.shakeEnabled
+            }
+            return false
         }
         set {
             TinyConsole.shared.tinyConsoleController?.shakeEnabled = newValue
