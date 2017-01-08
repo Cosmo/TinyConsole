@@ -47,9 +47,7 @@ open class TinyConsole {
     }
     
     public static func update(consoleMode mode: TinyConsoleController.WindowMode) {
-        if let viewController = shared.tinyConsoleController {
-            viewController.update(windowMode: mode, animated: true)
-        }
+        shared.tinyConsoleController?.update(windowMode: mode, animated: true)
     }
     
     public static func scrollToBottom() {
