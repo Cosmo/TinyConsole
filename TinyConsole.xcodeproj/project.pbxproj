@@ -200,7 +200,7 @@
 					};
 					4585FDE21DEC58BB00DDF5EB = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};

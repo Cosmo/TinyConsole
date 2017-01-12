@@ -8,9 +8,13 @@
 
 import UIKit
 
+/// 🚦📱 TinyConsole, a tiny log console to display information while using your iOS app.
 open class TinyConsole {
     public static var shared = TinyConsole()
     var textView: UITextView?
+    
+    // note: doesn't need to be weak because of textView
+    weak var tinyConsoleController: TinyConsoleController?
     
     public static var textAppearance = [
         NSFontAttributeName: UIFont(name: "Menlo", size: 12.0)!,
@@ -26,8 +30,21 @@ open class TinyConsole {
         return formatter
     }()
     
+    var shakeEnabled: Bool {
+        get {
+            return TinyConsole.shared.tinyConsoleController?.shakeEnabled ?? false
+        }
+        set {
+            TinyConsole.shared.tinyConsoleController?.shakeEnabled = newValue
+        }
+    }
+    
     func currentTimeStamp() -> String {
         return dateFormatter.string(from: Date())
+    }
+    
+    public static func update(consoleMode mode: TinyConsoleController.WindowMode) {
+        shared.tinyConsoleController?.update(windowMode: mode, animated: true)
     }
     
     public static func scrollToBottom() {

@@ -14,9 +14,18 @@ open class TinyConsoleController: UIViewController {
     ///
     /// - collapsed: the console is hidden
     /// - expanded: the console is shown
-    enum WindowMode {
-        case collapsed
+    public enum WindowMode: Int, CustomStringConvertible {
+        case collapsed = 0
         case expanded
+        
+        public var description: String {
+            switch self {
+            case .collapsed:
+                return "Collapsed"
+            case .expanded:
+                return "Expanded"
+            }
+        }
     }
     
     // MARK: - Private Properties -
@@ -45,14 +54,6 @@ open class TinyConsoleController: UIViewController {
         return consoleFrame
     }()
     
-    private var consoleWindowMode: WindowMode = .collapsed {
-        didSet {
-            consoleViewHeightConstraint?.isActive = false
-            consoleViewHeightConstraint?.constant = consoleWindowMode == .collapsed ? 0 : self.expandedHeight
-            consoleViewHeightConstraint?.isActive = true
-        }
-    }
-    
     // MARK: - Initializer -
     public init(rootViewController: UIViewController) {
         self.rootViewController = rootViewController
@@ -66,6 +67,25 @@ open class TinyConsoleController: UIViewController {
     }
     
     // MARK: - Public Methods -
+    public var shakeEnabled: Bool = true
+    
+    public var consoleWindowMode: WindowMode = .collapsed {
+        didSet {
+            consoleViewHeightConstraint?.isActive = false
+            consoleViewHeightConstraint?.constant = consoleWindowMode == .collapsed ? 0 : self.expandedHeight
+            consoleViewHeightConstraint?.isActive = true
+        }
+    }
+    
+    public func update(windowMode: WindowMode, animated: Bool) {
+        consoleWindowMode = windowMode
+        if animated == true {
+            UIView.animate(withDuration: 0.25) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,11 +103,8 @@ open class TinyConsoleController: UIViewController {
     }
     
     open override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if (motion == UIEventSubtype.motionShake) {
-            consoleWindowMode = consoleWindowMode == .collapsed ? .expanded : .collapsed
-            UIView.animate(withDuration: 0.25) {
-                self.view.layoutIfNeeded()
-            }
+        if (motion == UIEventSubtype.motionShake && shakeEnabled == true) {
+            self.update(windowMode: (consoleWindowMode == .collapsed ? .expanded : .collapsed), animated: true)
         }
     }
     
