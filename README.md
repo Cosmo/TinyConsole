@@ -19,7 +19,7 @@ Create a `TinyConsoleController`-Instance and pass your App-ViewController as a 
 let consoleController = TinyConsoleController(rootViewController: MyMainViewController())
 
 // With custom height
-let consoleController = TinyConsoleController(rootViewController: tabBarController, expandedHeight: 300)
+let consoleController = TinyConsoleController(rootViewController: MyMainViewController(), expandedHeight: 300)
 ```
 
 Set visibility
