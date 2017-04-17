@@ -15,7 +15,11 @@ Written in Swift 3.
 Create a `TinyConsoleController`-Instance and pass your App-ViewController as a `rootViewController` parameter.
 
 ```swift
+// Default height
 let consoleController = TinyConsoleController(rootViewController: MyMainViewController())
+
+// With custom height
+let consoleController = TinyConsoleController(rootViewController: tabBarController, expandedHeight: 300)
 ```
 
 Set visibility
