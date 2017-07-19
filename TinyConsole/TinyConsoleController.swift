@@ -66,6 +66,10 @@ open class TinyConsoleController: UIViewController {
     }
     
     // MARK: - Public Methods -
+    public var isExpanded: Bool {
+        return consoleWindowMode == .expanded
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
