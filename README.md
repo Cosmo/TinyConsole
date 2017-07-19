@@ -15,7 +15,20 @@ Written in Swift 3.
 Create a `TinyConsoleController`-Instance and pass your App-ViewController as a `rootViewController` parameter.
 
 ```swift
-TinyConsoleController(rootViewController: MyMainViewController())
+// Default height
+let consoleController = TinyConsoleController(rootViewController: MyMainViewController())
+
+// With custom height
+let consoleController = TinyConsoleController(rootViewController: MyMainViewController(), expandedHeight: 300)
+```
+
+Set visibility
+```swift
+// Hide console (default)
+consoleController.consoleWindowMode = .collapsed
+
+// Show console
+consoleController.consoleWindowMode = .expanded
 ```
 
 ### Actions

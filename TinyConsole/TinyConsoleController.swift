@@ -14,7 +14,7 @@ open class TinyConsoleController: UIViewController {
     ///
     /// - collapsed: the console is hidden
     /// - expanded: the console is shown
-    private enum WindowMode {
+    public enum WindowMode {
         case collapsed
         case expanded
     }
@@ -35,7 +35,7 @@ open class TinyConsoleController: UIViewController {
     }()
     
     private let consoleFrameHeight: CGFloat = 120
-    private let expandedHeight: CGFloat = 140
+    private var expandedHeight: CGFloat = 140
     
     private lazy var consoleFrame: CGRect = {
         
@@ -45,7 +45,7 @@ open class TinyConsoleController: UIViewController {
         return consoleFrame
     }()
     
-    private var consoleWindowMode: WindowMode = .collapsed {
+    public var consoleWindowMode: WindowMode = .collapsed {
         didSet {
             consoleViewHeightConstraint?.isActive = false
             consoleViewHeightConstraint?.constant = consoleWindowMode == .collapsed ? 0 : self.expandedHeight
@@ -56,6 +56,12 @@ open class TinyConsoleController: UIViewController {
     // MARK: - Initializer -
     public init(rootViewController: UIViewController) {
         self.rootViewController = rootViewController
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    public init(rootViewController: UIViewController, expandedHeight: CGFloat) {
+        self.rootViewController = rootViewController
+        self.expandedHeight = expandedHeight
         super.init(nibName: nil, bundle: nil)
     }
     

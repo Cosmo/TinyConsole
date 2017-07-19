@@ -25,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             viewController
         ]
         
-        window?.rootViewController = TinyConsoleController(rootViewController: tabBarController)
+        let consoleController = TinyConsoleController(rootViewController: tabBarController)
+        window?.rootViewController = consoleController
         window?.makeKeyAndVisible()
         
         return true
