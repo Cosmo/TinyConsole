@@ -25,10 +25,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             viewController
         ]
         
-        window?.rootViewController = TinyConsoleController(rootViewController: tabBarController)
+        // deprecated
+        // window?.rootViewController = TinyConsoleController(rootViewController: tabBarController)
+        
+        
+        
+        // TinyConsole with default gesture recognizers
+        // window?.rootViewController = TinyConsole.createViewController(rootViewController: tabBarController)
+        
+        // TinyConsole with custom gesture reconizers
+        window?.rootViewController = TinyConsole.createViewController(rootViewController: tabBarController, withDefaultGestureConfiguration: false)
+        // single tap
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(consoleTapped))
+        tapGestureRecognizer.numberOfTouchesRequired = 1
+        TinyConsole.addGestureRecognizer(tapGestureRecognizer)
+        // double tap
+        let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(consoleDoubleTapped))
+        doubleTapGestureRecognizer.numberOfTouchesRequired = 2
+        TinyConsole.addGestureRecognizer(doubleTapGestureRecognizer)
+        tapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
+        // swipe
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(consoleSwiped))
+        TinyConsole.addGestureRecognizer(swipeGestureRecognizer)
+        
+        // Calling this func to set back to default configuration
+        // TinyConsole.useDefaultGestureConfiguration()
+        
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func consoleTapped(sender: UITapGestureRecognizer) {
+        TinyConsole.print("console tapped, do nothing", global: true)
+    }
+    
+    func consoleDoubleTapped(sender: UITapGestureRecognizer) {
+        TinyConsole.print("console double tapped, do nothing", global: true)
+    }
+    
+    func consoleSwiped(sender: UISwipeGestureRecognizer) {
+        TinyConsole.print("console swipped, change to red view controller", global: true)
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.red
+        TinyConsole.set(rootViewController: vc)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
