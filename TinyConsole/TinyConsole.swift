@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class TinyConsole {
+open class TinyConsole: NSObject {
     public static var shared = TinyConsole()
     var textView: UITextView?
     var consoleController: TinyConsoleController
@@ -17,7 +17,7 @@ open class TinyConsole {
         NSFontAttributeName: UIFont(name: "Menlo", size: 12.0)!,
         NSForegroundColorAttributeName: UIColor.white]
     
-    private init() {
+    private override init() {
         consoleController = TinyConsoleController()
     }
     
