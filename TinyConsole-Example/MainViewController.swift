@@ -16,7 +16,7 @@ class MainViewController: UITableViewController {
     init() {
         tableViewDelegate = MainTableViewDelegate()
         tableViewDataSource = MainTableViewDataSource()
-        super.init(style: UITableViewStyle.plain)
+        super.init(style: UITableView.Style.plain)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,25 +47,25 @@ class MainViewController: UITableViewController {
     
     func setupNavigationItems() {
         navigationItem.leftBarButtonItems = [
-            UIBarButtonItem(title: "Add Log", style: UIBarButtonItemStyle.plain, target: self, action: #selector(addLog))
+            UIBarButtonItem(title: "Add Log", style: UIBarButtonItem.Style.plain, target: self, action: #selector(addLog))
         ]
         navigationItem.rightBarButtonItems = [
-            UIBarButtonItem( title: "Add Marker", style: UIBarButtonItemStyle.plain, target: self, action: #selector(addMarker)),
-            UIBarButtonItem( title: "Clear", style: UIBarButtonItemStyle.plain, target: self, action: #selector(clear)),
+            UIBarButtonItem( title: "Add Marker", style: UIBarButtonItem.Style.plain, target: self, action: #selector(addMarker)),
+            UIBarButtonItem( title: "Clear", style: UIBarButtonItem.Style.plain, target: self, action: #selector(clear)),
         ]
     }
 }
 
 extension MainViewController {
-    func addLog() {
+    @objc func addLog() {
         TinyConsole.print("Hello World")
     }
     
-    func clear() {
+    @objc func clear() {
         TinyConsole.clear()
     }
     
-    func addMarker() {
+    @objc func addMarker() {
         TinyConsole.addMarker()
     }
 }

@@ -13,12 +13,12 @@ import TinyConsole
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let viewController = UINavigationController(rootViewController: MainViewController())
         viewController.title = "Main"
-        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.recents, tag: 0)
+        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.recents, tag: 0)
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [
@@ -56,15 +56,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func consoleTapped(sender: UITapGestureRecognizer) {
+    @objc func consoleTapped(sender: UITapGestureRecognizer) {
         TinyConsole.print("console tapped, do nothing", global: true)
     }
     
-    func consoleDoubleTapped(sender: UITapGestureRecognizer) {
+    @objc func consoleDoubleTapped(sender: UITapGestureRecognizer) {
         TinyConsole.print("console double tapped, do nothing", global: true)
     }
     
-    func consoleSwiped(sender: UISwipeGestureRecognizer) {
+    @objc func consoleSwiped(sender: UISwipeGestureRecognizer) {
         TinyConsole.print("console swipped, change to red view controller", global: true)
         let vc = UIViewController()
         vc.view.backgroundColor = UIColor.red
