@@ -89,8 +89,8 @@ open class TinyConsoleController: UIViewController {
         setupConstraints()
     }
     
-    open override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if (motion == UIEventSubtype.motionShake) {
+    open override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if (motion == UIEvent.EventSubtype.motionShake) {
             consoleWindowMode = consoleWindowMode == .collapsed ? .expanded : .collapsed
             UIView.animate(withDuration: 0.25) {
                 self.view.layoutIfNeeded()
@@ -103,19 +103,19 @@ open class TinyConsoleController: UIViewController {
         for view in view.subviews {
             view.removeFromSuperview()
         }
-        for childViewController in childViewControllers {
-            childViewController.removeFromParentViewController()
+        for childViewController in children {
+            childViewController.removeFromParent()
         }
         
-        addChildViewController(consoleViewController)
+        addChild(consoleViewController)
         consoleViewController.view.frame = consoleFrame
         view.addSubview(consoleViewController.view)
-        consoleViewController.didMove(toParentViewController: self)
+        consoleViewController.didMove(toParent: self)
         
-        addChildViewController(rootViewController)
+        addChild(rootViewController)
         rootViewController.view.frame = CGRect(x: consoleFrame.minX, y: consoleFrame.maxY, width: view.bounds.width, height: 120)
         view.addSubview(rootViewController.view)
-        rootViewController.didMove(toParentViewController: self)
+        rootViewController.didMove(toParent: self)
     }
     
     private func setupConstraints() {
