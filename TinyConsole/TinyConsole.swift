@@ -13,9 +13,9 @@ open class TinyConsole {
     var textView: UITextView?
     var consoleController: TinyConsoleController
     
-    public static var textAppearance = [
-        NSAttributedString.Key.font: UIFont(name: "Menlo", size: 12.0)!,
-        NSAttributedString.Key.foregroundColor: UIColor.white]
+    public static var textAppearance: [NSAttributedString.Key: Any] = [
+        .font: UIFont(name: "Menlo", size: 12.0)!,
+        .foregroundColor: UIColor.white]
     
     private init() {
         consoleController = TinyConsoleController()
