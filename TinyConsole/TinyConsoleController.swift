@@ -104,6 +104,10 @@ open class TinyConsoleController: UIViewController {
     // MARK: - Private Methods -
 
     private func setupViewControllers() {
+        children.forEach {
+            $0.willMove(toParent: nil)
+        }
+
         for view in view.subviews {
             view.removeFromSuperview()
         }
