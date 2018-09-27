@@ -62,7 +62,7 @@ open class TinyConsole {
 
         // set standard text appearance and override foreground color attribute
         formattedText.addAttributes(TinyConsole.textAppearance, range: range)
-        formattedText.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+        formattedText.addAttribute(.foregroundColor, value: color, range: range)
 
         TinyConsole.print(formattedText, global: global)
     }

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let viewController = UINavigationController(rootViewController: MainViewController())
         viewController.title = "Main"
-        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.recents, tag: 0)
+        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .recents, tag: 0)
 
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [

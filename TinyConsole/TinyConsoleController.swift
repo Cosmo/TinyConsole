@@ -93,7 +93,7 @@ open class TinyConsoleController: UIViewController {
     }
 
     open override func motionBegan(_ motion: UIEvent.EventSubtype, with _: UIEvent?) {
-        if motion == UIEvent.EventSubtype.motionShake {
+        if motion == .motionShake {
             consoleWindowMode = consoleWindowMode == .collapsed ? .expanded : .collapsed
             UIView.animate(withDuration: 0.25) {
                 self.view.layoutIfNeeded()
@@ -107,8 +107,8 @@ open class TinyConsoleController: UIViewController {
         for view in view.subviews {
             view.removeFromSuperview()
         }
-        for childViewController in children {
-            childViewController.removeFromParent()
+        children.forEach {
+            $0.removeFromParent()
         }
 
         addChild(consoleViewController)
