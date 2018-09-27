@@ -2,7 +2,7 @@
 
 # TinyConsole
 
-<img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" /> <img src="https://img.shields.io/badge/swift4.2-compatible-green.svg?style=flat" alt="Swift 4.2 compatible" /> <img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat" alt="Carthage compatible" /> <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT" />
+<img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" /> <img src="https://img.shields.io/badge/swift4.2-compatible-green.svg?style=flat" alt="Swift 4.2 compatible" /> <img src="https://img.shields.io/badge/Cocoapods-compatible-brightgreen.svg?style=flat" alt="Cocoapods compatible" /> <img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat" alt="Carthage compatible" /> <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT" />
 
 A tiny log console to display information while using your iOS app.
 Written in Swift 4.2.
