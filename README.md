@@ -3,12 +3,12 @@
 # TinyConsole
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<img src="https://img.shields.io/badge/swift3-compatible-green.svg?style=flat" alt="Swift 3 compatible" />
+<img src="https://img.shields.io/badge/swift4.2-compatible-green.svg?style=flat" alt="Swift 4.2 compatible" />
 <img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat" alt="Carthage compatible" />
 <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT" />
 
 A tiny log console to display information while using your iOS app.
-Written in Swift 3.
+Written in Swift 4.2.
 
 ## Usage
 
@@ -98,8 +98,8 @@ or checkout the example project included in this repository.
 
 ## Requirements
 
-* Xcode 8
-* Swift 3
+* Xcode 10
+* Swift 4.2
 * iOS 8 or greater
 
 ## Installation
