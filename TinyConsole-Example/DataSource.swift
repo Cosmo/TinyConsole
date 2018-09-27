@@ -12,15 +12,15 @@ class MainTableViewDataSource: NSObject, UITableViewDataSource {
     func registerCellsForTableView(_ tableView: UITableView) {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "default")
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+
+    func numberOfSections(in _: UITableView) -> Int {
         return 1
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return 30
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath)
         cell.textLabel?.text = "Row \(indexPath.row)"

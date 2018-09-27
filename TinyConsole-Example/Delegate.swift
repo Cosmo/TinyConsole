@@ -6,11 +6,11 @@
 //
 //
 
-import UIKit
 import TinyConsole
+import UIKit
 
 class MainTableViewDelegate: NSObject, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         TinyConsole.print("Tapped on \(indexPath.row)")
     }
 }
