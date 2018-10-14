@@ -14,8 +14,8 @@ open class TinyConsole {
     var consoleController: TinyConsoleController
     
     public static var textAppearance = [
-        NSFontAttributeName: UIFont(name: "Menlo", size: 12.0)!,
-        NSForegroundColorAttributeName: UIColor.white]
+        convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont(name: "Menlo", size: 12.0)!,
+        convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.white]
     
     private init() {
         consoleController = TinyConsoleController()
@@ -59,8 +59,8 @@ open class TinyConsole {
         let range = NSRange(location: 0, length: formattedText.length)
         
         // set standard text appearance and override foreground color attribute
-        formattedText.addAttributes(TinyConsole.textAppearance, range: range)
-        formattedText.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+        formattedText.addAttributes(convertToNSAttributedStringKeyDictionary(TinyConsole.textAppearance), range: range)
+        formattedText.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
         
         TinyConsole.print(formattedText, global: global)
     }
@@ -72,7 +72,7 @@ open class TinyConsole {
                 let range = NSRange(location: 0, length: timeStamped.length)
                 
                 // set standard text appearance for time-stamp
-                timeStamped.addAttributes(TinyConsole.textAppearance, range: range)
+                timeStamped.addAttributes(convertToNSAttributedStringKeyDictionary(TinyConsole.textAppearance), range: range)
                 
                 timeStamped.append(text)
                 timeStamped.append(NSAttributedString(string: "\n"))
@@ -140,4 +140,14 @@ extension TinyConsole {
     public func addMarker() {
         TinyConsole.addMarker()
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }
