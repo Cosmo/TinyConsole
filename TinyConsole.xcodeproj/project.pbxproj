@@ -49,7 +49,6 @@
 		450284DD1DFD878C00922381 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		450284DF1DFD87BA00922381 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		4585FDCB1DEC54B800DDF5EB /* TinyConsole.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConsole.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4585FDD51DEC54D300DDF5EB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4585FDD61DEC54D300DDF5EB /* TinyConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyConsole.h; sourceTree = "<group>"; };
 		4585FDD91DEC552600DDF5EB /* TinyConsoleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyConsoleController.swift; sourceTree = "<group>"; };
 		4585FDDB1DEC557000DDF5EB /* TinyConsole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyConsole.swift; sourceTree = "<group>"; };
@@ -113,7 +112,6 @@
 		4585FDD41DEC54D300DDF5EB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4585FDD51DEC54D300DDF5EB /* Info.plist */,
 				4585FDD61DEC54D300DDF5EB /* TinyConsole.h */,
 			);
 			path = "Supporting Files";
