@@ -1,6 +1,8 @@
 <img src="https://raw.githubusercontent.com/Cosmo/TinyConsole/master/TinyConsole-Banner.png" alt=" text" width="100%" />
 
 # TinyConsole
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FCosmo%2FTinyConsole.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FCosmo%2FTinyConsole?ref=badge_shield)
+
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
 <img src="https://img.shields.io/badge/swift3-compatible-green.svg?style=flat" alt="Swift 3 compatible" />
@@ -136,3 +138,6 @@ Just drag the source files into your project.
 ## License
 
 TinyConsole is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FCosmo%2FTinyConsole.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FCosmo%2FTinyConsole?ref=badge_large)
