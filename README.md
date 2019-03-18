@@ -4,8 +4,7 @@
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" /> <img src="https://img.shields.io/badge/swift4.2-compatible-green.svg?style=flat" alt="Swift 4.2 compatible" /> <img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat" alt="Carthage compatible" /> <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT" />
 
-A tiny log console to display information while using your iOS app.
-Written in Swift 4.2.
+TinyConsole is a tiny log console to display information while using your iOS app and written in Swift 4.2.
 
 ## Usage
 
@@ -37,7 +36,7 @@ TinyConsole.clear()
 
 ### Gestures
 
-By default, the gestures is configured as follows:
+By default, the gestures are configured as follows:
 
 * Swipe from Left to Right: `Add marker`
 * 2 Finger Tap: `Add custom log entry`
@@ -68,7 +67,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-or checkout the example project included in this repository.
+alternatively, check out the example project included in this repository.
 
 ## Demo
 
