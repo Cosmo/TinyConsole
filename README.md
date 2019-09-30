@@ -94,6 +94,17 @@ Just drag the source files into your project.
 
 <img src="https://raw.githubusercontent.com/Cosmo/TinyConsole/master/TinyConsole-Hierarchy.png" alt=" text" width="100%" />
 
+## Core Team
+
+- [@Cosmo](https://github.com/Cosmo), Devran "Cosmo" Uenal
+- [@mRs-](https://github.com/mRs-), Marius Landwehr
+- [@ohitsdaniel](https://github.com/ohitsdaniel), Daniel Peter
+
+## Thanks
+
+Many thanks to [**the contributors**](https://github.com/Cosmo/TinyConsole/graphs/contributors) of this project.
+
+
 ## Contact
 
 * Devran "Cosmo" Uenal
