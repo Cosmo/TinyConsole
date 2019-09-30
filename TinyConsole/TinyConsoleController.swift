@@ -20,22 +20,32 @@ open class TinyConsoleController: UIViewController {
         case expanded
     }
     
-    // MARK: - Private Properties -
-    private var animationDuration = 0.25
     var rootViewController: UIViewController {
         didSet {
             setupViewControllers()
             setupConstraints()
         }
     }
-
-    var consoleViewController: TinyConsoleViewController = {
+    
+    // MARK: - Private Properties
+    
+    private var animationDuration = 0.25
+    
+    private var consoleViewController: TinyConsoleViewController = {
         TinyConsoleViewController()
     }()
 
     private lazy var consoleViewHeightConstraint: NSLayoutConstraint? = {
         return consoleViewController.view.heightAnchor.constraint(equalToConstant: 0)
     }()
+    
+    private func updateHeightConstraint() {
+        consoleViewHeightConstraint?.isActive = false
+        consoleViewHeightConstraint?.constant = consoleWindowMode == .collapsed ? 0 : consoleHeight
+        consoleViewHeightConstraint?.isActive = true
+    }
+    
+    // MARK: - Public Properties
     
     public var consoleHeight: CGFloat = 200 {
         didSet {
@@ -46,21 +56,13 @@ open class TinyConsoleController: UIViewController {
         }
     }
     
-    // MARK: - Public Properties -
-    
     public var consoleWindowMode: WindowMode = .collapsed {
         didSet {
             updateHeightConstraint()
         }
     }
-    
-    func updateHeightConstraint() {
-        consoleViewHeightConstraint?.isActive = false
-        consoleViewHeightConstraint?.constant = consoleWindowMode == .collapsed ? 0 : consoleHeight
-        consoleViewHeightConstraint?.isActive = true
-    }
 
-    // MARK: - Initializer -
+    // MARK: - Initializer
 
     init() {
         rootViewController = UIViewController()
@@ -73,7 +75,7 @@ open class TinyConsoleController: UIViewController {
         super.init(coder: aDecoder)
     }
 
-    // MARK: - Public Methods -
+    // MARK: - Public Methods
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +90,7 @@ open class TinyConsoleController: UIViewController {
         }
     }
 
-    // MARK: - Private Methods -
+    // MARK: - Private Methods
     
     internal func toggleWindowMode() {
         consoleWindowMode = consoleWindowMode == .collapsed ? .expanded : .collapsed

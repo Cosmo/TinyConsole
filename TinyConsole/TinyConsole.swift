@@ -31,11 +31,11 @@ open class TinyConsole {
         return formatter
     }()
 
-    var currentTimeStamp: String {
+    private var currentTimeStamp: String {
         return dateFormatter.string(from: Date())
     }
 
-    // MARK: - Create view contoller
+    // MARK: - Create View Contoller
     public static func createViewController(rootViewController: UIViewController) -> UIViewController {
         set(rootViewController: rootViewController)
         return shared.consoleController
@@ -44,6 +44,8 @@ open class TinyConsole {
     public static func set(rootViewController: UIViewController) {
         shared.consoleController.rootViewController = rootViewController
     }
+    
+    // MARK: - Actions
 
     public static func scrollToBottom() {
         guard let

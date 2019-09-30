@@ -11,7 +11,7 @@ import MessageUI
 
 /// This UIViewController
 class TinyConsoleViewController: UIViewController {
-    let stackView: UIStackView = {
+    private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
