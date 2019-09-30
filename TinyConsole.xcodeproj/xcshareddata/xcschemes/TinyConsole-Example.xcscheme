@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4585FDCA1DEC54B800DDF5EB"
-               BuildableName = "TinyConsole.framework"
-               BlueprintName = "TinyConsole"
+               BlueprintIdentifier = "4585FDE21DEC58BB00DDF5EB"
+               BuildableName = "TinyConsole-Example.app"
+               BlueprintName = "TinyConsole-Example"
                ReferencedContainer = "container:TinyConsole.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,15 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4585FDCA1DEC54B800DDF5EB"
-            BuildableName = "TinyConsole.framework"
-            BlueprintName = "TinyConsole"
+            BlueprintIdentifier = "4585FDE21DEC58BB00DDF5EB"
+            BuildableName = "TinyConsole-Example.app"
+            BlueprintName = "TinyConsole-Example"
             ReferencedContainer = "container:TinyConsole.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -56,15 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4585FDCA1DEC54B800DDF5EB"
-            BuildableName = "TinyConsole.framework"
-            BlueprintName = "TinyConsole"
+            BlueprintIdentifier = "4585FDE21DEC58BB00DDF5EB"
+            BuildableName = "TinyConsole-Example.app"
+            BlueprintName = "TinyConsole-Example"
             ReferencedContainer = "container:TinyConsole.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

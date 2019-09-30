@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		450284DE1DFD878C00922381 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450284DD1DFD878C00922381 /* DataSource.swift */; };
-		450284E01DFD87BA00922381 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450284DF1DFD87BA00922381 /* Delegate.swift */; };
+		450284DE1DFD878C00922381 /* MainTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450284DD1DFD878C00922381 /* MainTableData.swift */; };
+		455463482341729800F5B78F /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455463472341729800F5B78F /* UIViewControllerExtensions.swift */; };
+		4554634A2341773600F5B78F /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455463492341773600F5B78F /* NSAttributedStringExtensions.swift */; };
+		4554634C23418E6F00F5B78F /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554634B23418E6F00F5B78F /* UIButtonExtensions.swift */; };
+		4554634E2341901F00F5B78F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4554634D2341901F00F5B78F /* README.md */; };
 		457B894F1DF4DB74001DD49C /* TinyConsole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4585FDCB1DEC54B800DDF5EB /* TinyConsole.framework */; };
 		457B89501DF4DB74001DD49C /* TinyConsole.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4585FDCB1DEC54B800DDF5EB /* TinyConsole.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4585FDD81DEC54D300DDF5EB /* TinyConsole.h in Headers */ = {isa = PBXBuildFile; fileRef = 4585FDD61DEC54D300DDF5EB /* TinyConsole.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,6 +22,9 @@
 		4585FDE81DEC58BB00DDF5EB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4585FDE71DEC58BB00DDF5EB /* MainViewController.swift */; };
 		4585FDED1DEC58BB00DDF5EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4585FDEC1DEC58BB00DDF5EB /* Assets.xcassets */; };
 		4585FDF01DEC58BB00DDF5EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4585FDEE1DEC58BB00DDF5EB /* LaunchScreen.storyboard */; };
+		45A3359A23412FB700F96AFA /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3359923412FB700F96AFA /* UIViewExtensions.swift */; };
+		45A3359C23416D5A00F96AFA /* UIAlertActionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3359B23416D5A00F96AFA /* UIAlertActionExtensions.swift */; };
+		45A3359E23416DCA00F96AFA /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3359D23416DCA00F96AFA /* UITextViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +52,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		450284DD1DFD878C00922381 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
-		450284DF1DFD87BA00922381 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		450284DD1DFD878C00922381 /* MainTableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableData.swift; sourceTree = "<group>"; };
+		455463472341729800F5B78F /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		455463492341773600F5B78F /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
+		4554634B23418E6F00F5B78F /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
+		4554634D2341901F00F5B78F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4585FDCB1DEC54B800DDF5EB /* TinyConsole.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConsole.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4585FDD51DEC54D300DDF5EB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4585FDD61DEC54D300DDF5EB /* TinyConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyConsole.h; sourceTree = "<group>"; };
@@ -60,6 +69,9 @@
 		4585FDEC1DEC58BB00DDF5EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4585FDEF1DEC58BB00DDF5EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4585FDF11DEC58BB00DDF5EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45A3359923412FB700F96AFA /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		45A3359B23416D5A00F96AFA /* UIAlertActionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertActionExtensions.swift; sourceTree = "<group>"; };
+		45A3359D23416DCA00F96AFA /* UITextViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +96,7 @@
 		4585FDBF1DEC532500DDF5EB = {
 			isa = PBXGroup;
 			children = (
+				4554634D2341901F00F5B78F /* README.md */,
 				4585FDCD1DEC54B800DDF5EB /* TinyConsole */,
 				4585FDE41DEC58BB00DDF5EB /* TinyConsole-Example */,
 				4585FDCC1DEC54B800DDF5EB /* Products */,
@@ -102,10 +115,11 @@
 		4585FDCD1DEC54B800DDF5EB /* TinyConsole */ = {
 			isa = PBXGroup;
 			children = (
-				4585FDD41DEC54D300DDF5EB /* Supporting Files */,
+				4585FDDB1DEC557000DDF5EB /* TinyConsole.swift */,
 				4585FDD91DEC552600DDF5EB /* TinyConsoleController.swift */,
 				4585FDDD1DEC559D00DDF5EB /* TinyConsoleViewController.swift */,
-				4585FDDB1DEC557000DDF5EB /* TinyConsole.swift */,
+				45A3359F23416DF800F96AFA /* Extensions */,
+				4585FDD41DEC54D300DDF5EB /* Supporting Files */,
 			);
 			path = TinyConsole;
 			sourceTree = "<group>";
@@ -124,13 +138,33 @@
 			children = (
 				4585FDE51DEC58BB00DDF5EB /* AppDelegate.swift */,
 				4585FDE71DEC58BB00DDF5EB /* MainViewController.swift */,
-				450284DD1DFD878C00922381 /* DataSource.swift */,
-				450284DF1DFD87BA00922381 /* Delegate.swift */,
+				450284DD1DFD878C00922381 /* MainTableData.swift */,
+				45A3359823412D2D00F96AFA /* Supporting Files */,
+			);
+			path = "TinyConsole-Example";
+			sourceTree = "<group>";
+		};
+		45A3359823412D2D00F96AFA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				4585FDEC1DEC58BB00DDF5EB /* Assets.xcassets */,
 				4585FDEE1DEC58BB00DDF5EB /* LaunchScreen.storyboard */,
 				4585FDF11DEC58BB00DDF5EB /* Info.plist */,
 			);
-			path = "TinyConsole-Example";
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45A3359F23416DF800F96AFA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				45A3359923412FB700F96AFA /* UIViewExtensions.swift */,
+				45A3359B23416D5A00F96AFA /* UIAlertActionExtensions.swift */,
+				45A3359D23416DCA00F96AFA /* UITextViewExtensions.swift */,
+				455463472341729800F5B78F /* UIViewControllerExtensions.swift */,
+				455463492341773600F5B78F /* NSAttributedStringExtensions.swift */,
+				4554634B23418E6F00F5B78F /* UIButtonExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,23 +225,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1110;
 				TargetAttributes = {
 					4585FDCA1DEC54B800DDF5EB = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1110;
 						ProvisioningStyle = Automatic;
 					};
 					4585FDE21DEC58BB00DDF5EB = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1110;
 						ProvisioningStyle = Manual;
 					};
 				};
 			};
 			buildConfigurationList = 4585FDC31DEC532500DDF5EB /* Build configuration list for PBXProject "TinyConsole" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -229,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4554634E2341901F00F5B78F /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +284,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4585FDDA1DEC552600DDF5EB /* TinyConsoleController.swift in Sources */,
+				4554634A2341773600F5B78F /* NSAttributedStringExtensions.swift in Sources */,
 				4585FDDE1DEC559D00DDF5EB /* TinyConsoleViewController.swift in Sources */,
+				45A3359A23412FB700F96AFA /* UIViewExtensions.swift in Sources */,
+				45A3359C23416D5A00F96AFA /* UIAlertActionExtensions.swift in Sources */,
 				4585FDDC1DEC557000DDF5EB /* TinyConsole.swift in Sources */,
+				4554634C23418E6F00F5B78F /* UIButtonExtensions.swift in Sources */,
+				45A3359E23416DCA00F96AFA /* UITextViewExtensions.swift in Sources */,
+				455463482341729800F5B78F /* UIViewControllerExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				450284E01DFD87BA00922381 /* Delegate.swift in Sources */,
-				450284DE1DFD878C00922381 /* DataSource.swift in Sources */,
+				450284DE1DFD878C00922381 /* MainTableData.swift in Sources */,
 				4585FDE81DEC58BB00DDF5EB /* MainViewController.swift in Sources */,
 				4585FDE61DEC58BB00DDF5EB /* AppDelegate.swift in Sources */,
 			);
@@ -290,6 +330,7 @@
 		4585FDC41DEC532500DDF5EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -323,6 +364,7 @@
 		4585FDC51DEC532500DDF5EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -400,8 +442,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/TinyConsole/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.0.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devranuenal.TinyConsole;
@@ -410,7 +453,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -460,15 +503,16 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/TinyConsole/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devranuenal.TinyConsole;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -520,7 +564,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "TinyConsole-Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -530,7 +574,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -573,7 +617,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "TinyConsole-Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.devranuenal.TinyConsole-Example";
@@ -581,7 +625,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
