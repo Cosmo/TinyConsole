@@ -11,7 +11,7 @@ TinyConsole is a tiny log console to display information while using your iOS ap
 Wrap your Main ViewController inside of a `TinyConsoleController` like so:
 
 ```swift
-TinyConsoleController(rootViewController: MyMainViewController())
+TinyConsole.createViewController(rootViewController: MyMainViewController())
 ```
 
 ### Actions
@@ -27,30 +27,21 @@ TinyConsole.print("green text", color: UIColor.green)
 TinyConsole.error("something went wrong")
 
 // Print a marker for orientation
-TinyConsole.addMarker()
+TinyConsole.addLine()
 
 // Clear console
 TinyConsole.clear()
 
 ```
 
-### Gestures
-
-By default, the gestures are configured as follows:
-
-* Swipe from Left to Right: `Add marker`
-* 2 Finger Tap: `Add custom log entry`
-* 3 Finger Tap: Show Action Sheet to `Clear Console` and `Send Mail`
-* Shake to toggle the console view. If you’re using the Simulator, press <kbd>⌃ ctrl</kbd>-<kbd>⌘ cmd</kbd>-<kbd>z</kbd>.
-
 ## Implementation Example
 
 Instead of
 
 ```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
-    window?.rootViewController = MainViewController()
+    window?.rootViewController = MyMainViewController()
     window?.makeKeyAndVisible()
     return true
 }
@@ -59,9 +50,9 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 write
 
 ```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
-    window?.rootViewController = TinyConsoleController(rootViewController: MyMainViewController())
+    window?.rootViewController = TinyConsole.createViewController(rootViewController: MyMainViewController())
     window?.makeKeyAndVisible()
     return true
 }
@@ -75,9 +66,9 @@ alternatively, check out the example project included in this repository.
 
 ## Requirements
 
-* Xcode 10
-* Swift 4.2
-* iOS 8 or greater
+* Xcode 11
+* Swift 5
+* iOS 11 or greater
 
 ## Installation
 

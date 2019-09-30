@@ -11,6 +11,7 @@
 		455463482341729800F5B78F /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455463472341729800F5B78F /* UIViewControllerExtensions.swift */; };
 		4554634A2341773600F5B78F /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455463492341773600F5B78F /* NSAttributedStringExtensions.swift */; };
 		4554634C23418E6F00F5B78F /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554634B23418E6F00F5B78F /* UIButtonExtensions.swift */; };
+		4554634E2341901F00F5B78F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4554634D2341901F00F5B78F /* README.md */; };
 		457B894F1DF4DB74001DD49C /* TinyConsole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4585FDCB1DEC54B800DDF5EB /* TinyConsole.framework */; };
 		457B89501DF4DB74001DD49C /* TinyConsole.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4585FDCB1DEC54B800DDF5EB /* TinyConsole.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4585FDD81DEC54D300DDF5EB /* TinyConsole.h in Headers */ = {isa = PBXBuildFile; fileRef = 4585FDD61DEC54D300DDF5EB /* TinyConsole.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,6 +56,7 @@
 		455463472341729800F5B78F /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		455463492341773600F5B78F /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		4554634B23418E6F00F5B78F /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
+		4554634D2341901F00F5B78F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4585FDCB1DEC54B800DDF5EB /* TinyConsole.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConsole.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4585FDD51DEC54D300DDF5EB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4585FDD61DEC54D300DDF5EB /* TinyConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyConsole.h; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		4585FDBF1DEC532500DDF5EB = {
 			isa = PBXGroup;
 			children = (
+				4554634D2341901F00F5B78F /* README.md */,
 				4585FDCD1DEC54B800DDF5EB /* TinyConsole */,
 				4585FDE41DEC58BB00DDF5EB /* TinyConsole-Example */,
 				4585FDCC1DEC54B800DDF5EB /* Products */,
@@ -260,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4554634E2341901F00F5B78F /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
