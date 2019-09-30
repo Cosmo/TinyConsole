@@ -16,6 +16,13 @@ TinyConsole.createViewController(rootViewController: MyMainViewController())
 
 ### Actions
 
+#### Hide and Show
+
+Shake your device to toggle the console.
+If you’re using the Simulator, press <kbd>⌃ ctrl</kbd>-<kbd>⌘ cmd</kbd>-<kbd>z</kbd>.
+
+#### Console output
+
 ```swift
 // Print message
 TinyConsole.print("hello")
@@ -31,7 +38,6 @@ TinyConsole.addLine()
 
 // Clear console
 TinyConsole.clear()
-
 ```
 
 ## Implementation Example
